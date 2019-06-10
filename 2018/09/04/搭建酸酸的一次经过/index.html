@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="翻墙,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="回首向来萧瑟处·blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="此教程记录如何购买一个vps来搭建属于自己的vpn，进行科学上网">
+<meta name="keywords" content="翻墙">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记录搭建酸酸的一次经过">
+<meta property="og:url" content="http://yoursite.com/2018/09/04/搭建酸酸的一次经过/index.html">
+<meta property="og:site_name" content="回首向来萧瑟处·blog">
+<meta property="og:description" content="此教程记录如何购买一个vps来搭建属于自己的vpn，进行科学上网">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/09/04/搭建酸酸的一次经过/购买.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/04/搭建酸酸的一次经过/购买时选择服务器.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/04/搭建酸酸的一次经过/购买完成后的总状态显示.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/04/搭建酸酸的一次经过/服务器状态截图.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/04/搭建酸酸的一次经过/新装系统.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/04/搭建酸酸的一次经过/端口密码.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/04/搭建酸酸的一次经过/xshell1.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/04/搭建酸酸的一次经过/xshell2.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/04/搭建酸酸的一次经过/xshell3.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/04/搭建酸酸的一次经过/xshell4.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/04/搭建酸酸的一次经过/xshell5.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/04/搭建酸酸的一次经过/xshell6.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/04/搭建酸酸的一次经过/安装1.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/04/搭建酸酸的一次经过/安装2.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/04/搭建酸酸的一次经过/安装3.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/04/搭建酸酸的一次经过/tcp1.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/04/搭建酸酸的一次经过/tcp2.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/04/搭建酸酸的一次经过/tcp3.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/04/搭建酸酸的一次经过/tcp4.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/04/搭建酸酸的一次经过/tcp5.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/04/搭建酸酸的一次经过/tcp6.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/04/搭建酸酸的一次经过/ss.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/04/搭建酸酸的一次经过/ss2.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/04/搭建酸酸的一次经过/google.png">
+<meta property="og:updated_time" content="2018-09-05T02:50:37.606Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="记录搭建酸酸的一次经过">
+<meta name="twitter:description" content="此教程记录如何购买一个vps来搭建属于自己的vpn，进行科学上网">
+<meta name="twitter:image" content="http://yoursite.com/2018/09/04/搭建酸酸的一次经过/购买.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/09/04/搭建酸酸的一次经过/">
+
+
+
+
+
+  <title>记录搭建酸酸的一次经过 | 回首向来萧瑟处·blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/zhaoxuning233/zhaoxuning233.github.io"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+      <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">回首向来萧瑟处·blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+      </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/04/搭建酸酸的一次经过/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="赵旭宁">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="回首向来萧瑟处·blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">记录搭建酸酸的一次经过</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-04T11:35:32+08:00">
+                2018-09-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件/" itemprop="url" rel="index">
+                    <span itemprop="name">软件</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,271 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>此教程记录如何购买一个vps来搭建属于自己的vpn，进行科学上网<br><a id="more"></a></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上大学那会儿曾记否，当年在下为大多数妓院男生提供了宝贵的精神食粮（懂得都懂）。<br>记得当时找到一个特牛逼的日本网址，上面充满了花里胡哨的图片和视频。这才练就了一身的好本事。<br>反正这些年一直用一个在淘宝上认识的vpn卖家，用了好多年，信誉不错，就是每个月17块有点烦，贵且繁琐。期间还用一些chrome的插件应用来翻墙（付费的）<br><br>废话不多说了，早有想法搭建一个属于自己的vpn，到时候也不用害怕多端登录掉线，速度慢这些蛋疼的问题了，说干就干。</p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p><em>以下以我本人的环境进行记录</em></p>
+<ul>
+<li>操作系统：Windows 10 专业版</li>
+<li>vps平台：搬瓦工VPS</li>
+<li>代理软件：酸酸（shadowsock）</li>
+<li>命令操作工具：cmd</li>
+</ul>
+<h2 id="购买-VPS"><a href="#购买-VPS" class="headerlink" title="购买 VPS"></a>购买 VPS</h2><p><em>VPS:Virtual Private Server 虚拟专用服务器</em><br><br><em>个人理解为一个远程的虚拟的有一套独立的操作系统的一个小的服务器</em></p>
+<ul>
+<li>进入官网首页</li>
+<li>点击VPS Hosting，如下为准备购买的VPS服务器配置，注意点击购买KVM类型。<br><img src="/2018/09/04/搭建酸酸的一次经过/购买.png" alt></li>
+<li>一路点击下一步（关于英文请自行翻译），选择服务器时需要注意，如图所示，尽量选择洛杉矶的机房，速度更快一些（玄学）<br><img src="/2018/09/04/搭建酸酸的一次经过/购买时选择服务器.png" alt></li>
+</ul>
+<h2 id="购买成功"><a href="#购买成功" class="headerlink" title="购买成功"></a>购买成功</h2><ul>
+<li>购买完成后登录搬瓦工，会来到下图所示界面。按照图中提示，我们点击 KiwiVM Control Panel 前往搬瓦工 KiwiVM 控制面板。<br><img src="/2018/09/04/搭建酸酸的一次经过/购买完成后的总状态显示.png" alt></li>
+<li>点击 KiwiVM Control Panel 后，会来到下图所示界面。按照图中提示，先点击stop停止服务器。<br><img src="/2018/09/04/搭建酸酸的一次经过/服务器状态截图.png" alt></li>
+<li>点击 stop 停止服务器后，等待 3~5 秒即可。按照下图提示，首先点击左侧的 Install new OS，然后选择 centos-7-x86_64-bbr，然后打钩同意 I agree that …，最后点击Reload将系统重装为centos-7-x86_64-bbr即可。<br><img src="/2018/09/04/搭建酸酸的一次经过/新装系统.png" alt></li>
+<li>点击 Reload 后，会来到下图所示界面。按照图中提示，我们将SSH连接密码和SSH连接端口保存到记事本中，后面需要用到。忘记保存的请查看注册邮箱内的邮件，里面有相同信息。<br><img src="/2018/09/04/搭建酸酸的一次经过/端口密码.png" alt><br><strong>注意 SSH 连接密码是用来连接服务器的，不是用来连接 Shadowsocks 的</strong></li>
+</ul>
+<h2 id="使用-XShell-连接搬瓦工服务器"><a href="#使用-XShell-连接搬瓦工服务器" class="headerlink" title="使用 XShell 连接搬瓦工服务器"></a>使用 XShell 连接搬瓦工服务器</h2><ul>
+<li><p>下载xShell进行Windows系统上的远程连接，MacOS请打开终端进行操作。</p>
+<blockquote>
+<p>下载地址:<a href="https://www.lanzous.com/i0e157c" target="_blank" rel="noopener">https://www.lanzous.com/i0e157c</a></p>
+</blockquote>
+</li>
+<li><p>点击新建如下图所示<br><img src="/2018/09/04/搭建酸酸的一次经过/xshell1.png" alt></p>
+</li>
+<li><p>填写连接服务器的必填信息，步骤如下图所示<br><img src="/2018/09/04/搭建酸酸的一次经过/xshell2.png" alt><br><img src="/2018/09/04/搭建酸酸的一次经过/xshell3.png" alt><br><img src="/2018/09/04/搭建酸酸的一次经过/xshell4.png" alt><br><img src="/2018/09/04/搭建酸酸的一次经过/xshell5.png" alt></p>
+</li>
+<li><p>点击接受并保存按钮后，Xshell 软件会继续连接搬瓦工，连接成功后会出现下图中的提示信息,此时我们已经成功通过 Xshell 软件连接了搬瓦工，后面只需要运行所需命令即可操作此 VPS。<br><img src="/2018/09/04/搭建酸酸的一次经过/xshell6.png" alt></p>
+</li>
+</ul>
+<h2 id="搭建-Shadowsocks-服务"><a href="#搭建-Shadowsocks-服务" class="headerlink" title="搭建 Shadowsocks 服务"></a>搭建 Shadowsocks 服务</h2><ul>
+<li>使用xShell成功连接VPS后，输入以下命令<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y wget &amp;&amp; wget --no-check-certificate -O shadowsocks-libev_CN.sh https://raw.githubusercontent.com/uxh/shadowsocks_bash/master/shadowsocks-libev_CN.sh &amp;&amp; bash shadowsocks-libev_CN.sh</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2018/09/04/搭建酸酸的一次经过/安装1.png" alt></p>
+<ul>
+<li><p>回车后系统会进入安装界面。按照下图提示，我们首先依次输入 SS 的各项信息，然后回车继续即可。<br><img src="/2018/09/04/搭建酸酸的一次经过/安装2.png" alt></p>
+</li>
+<li><p>安装过程耗时 2~5 分钟，完成后会来到下图界面，请把图中四行红字信息保存下来，方便以后查询使用。<br><img src="/2018/09/04/搭建酸酸的一次经过/安装3.png" alt></p>
+</li>
+</ul>
+<h2 id="安装锐速-TCP-加速软件"><a href="#安装锐速-TCP-加速软件" class="headerlink" title="安装锐速 TCP 加速软件"></a>安装锐速 TCP 加速软件</h2><ul>
+<li><p>输入以下命令来进行加速软件的安装，听说安装后速度提升10倍左右，当然网速足够好不装也行啊。 : )</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate -O rskernel.sh https://raw.githubusercontent.com/uxh/shadowsocks_bash/master/rskernel.sh &amp;&amp; bash rskernel.sh</span><br></pre></td></tr></table></figure>
+<p>运行提示如图：<br><img src="/2018/09/04/搭建酸酸的一次经过/tcp1.png" alt></p>
+</li>
+<li><p>回车后系统会自动下载脚本并执行更换内核命令。按照下图提示，我们可以看到当前系统为 CentOS7，等待内核更换完毕后系统会自动重启并断开连接。<br><img src="/2018/09/04/搭建酸酸的一次经过/tcp2.png" alt></p>
+</li>
+<li><p>系统重启后，Xshell 软件会断开连接。等待 3~5 分钟服务器即可重启完毕，我们重新连接服务器，按照下图提示，我们继续复制命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install net-tools -y &amp;&amp; wget --no-check-certificate -O appex.sh https://raw.githubusercontent.com/0oVicero0/serverSpeeder_Install/master/appex.sh &amp;&amp; bash appex.sh install</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/09/04/搭建酸酸的一次经过/tcp3.png" alt></p>
+</li>
+<li><p>回车后系统会自动下载脚本并执行。按照下图提示,接下来一路激动地回车就完事儿了 : &gt;<br><img src="/2018/09/04/搭建酸酸的一次经过/tcp4.png" alt><br><img src="/2018/09/04/搭建酸酸的一次经过/tcp5.png" alt><br><img src="/2018/09/04/搭建酸酸的一次经过/tcp6.png" alt></p>
+</li>
+</ul>
+<p><strong>到此VPS的远程配置全部结束，开始尽情使用</strong></p>
+<h2 id="下载酸酸，配置酸酸"><a href="#下载酸酸，配置酸酸" class="headerlink" title="下载酸酸，配置酸酸"></a>下载酸酸，配置酸酸</h2><table>
+<thead>
+<tr>
+<th>系统</th>
+<th>地址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Windows</td>
+<td><a href="https://www.banwagongzw.com/goto/?url=aHR0cHM6Ly9jdXJscy5mdW4vU2hhZG93c29ja3MvU2hhZG93c29ja3MtV2luZG93cy00LjAuOS56aXA=" target="_blank" rel="noopener">https://www.banwagongzw.com/goto/?url=aHR0cHM6Ly9jdXJscy5mdW4vU2hhZG93c29ja3MvU2hhZG93c29ja3MtV2luZG93cy00LjAuOS56aXA=</a></td>
+</tr>
+<tr>
+<td>MacOS</td>
+<td><a href="https://www.banwagongzw.com/goto/?url=aHR0cHM6Ly9jdXJscy5mdW4vU2hhZG93c29ja3MvU2hhZG93c29ja3MtTWFjT1MtMi42LjMuemlw" target="_blank" rel="noopener">https://www.banwagongzw.com/goto/?url=aHR0cHM6Ly9jdXJscy5mdW4vU2hhZG93c29ja3MvU2hhZG93c29ja3MtTWFjT1MtMi42LjMuemlw</a></td>
+</tr>
+<tr>
+<td>Android</td>
+<td><a href="https://www.banwagongzw.com/goto/?url=aHR0cHM6Ly9jdXJscy5mdW4vU2hhZG93c29ja3MvU2hhZG93c29ja3MtQW5kcm9pZC00LjUuMS5hcGs=" target="_blank" rel="noopener">https://www.banwagongzw.com/goto/?url=aHR0cHM6Ly9jdXJscy5mdW4vU2hhZG93c29ja3MvU2hhZG93c29ja3MtQW5kcm9pZC00LjUuMS5hcGs=</a></td>
+</tr>
+<tr>
+<td>iPhone</td>
+<td>自己滚去AppStore花6元下载</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>配置酸酸，如图</p>
+<p><strong>请按照自己的VPS信息填写，填写错误无法成功</strong><br><img src="/2018/09/04/搭建酸酸的一次经过/ss.png" alt></p>
+</li>
+<li><p>设置pac代理并开机自启动<br><img src="/2018/09/04/搭建酸酸的一次经过/ss2.png" alt></p>
+</li>
+</ul>
+<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><blockquote>
+<p>打开google或者其他不可告人的网站来检验一下自己的劳动成果吧,我反正成功了 :D</p>
+</blockquote>
+<p><img src="/2018/09/04/搭建酸酸的一次经过/google.png" alt></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/翻墙/" rel="tag"># 翻墙</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/04/重回博客/" rel="next" title="重回博客">
+                <i class="fa fa-chevron-left"></i> 重回博客
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/15/learn-kotlin-1/" rel="prev" title="学习Kotlin第一篇">
+                学习Kotlin第一篇 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/head.jpeg" alt="赵旭宁">
+            
+              <p class="site-author-name" itemprop="name">赵旭宁</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/zhaoxuning233/zhaoxuning233.github.io.git" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zxn1136714686@163.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://weibo.com/login.php" target="_blank" title="WeiBo">
+                    
+                      <i class="fa fa-fw fa-twitter"></i>WeiBo</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                我的粉丝
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="daevasong.github.io" title="Devae_Song" target="_blank">Devae_Song</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com/" title="张二多" target="_blank">张二多</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com/" title="欧阳娜娜" target="_blank">欧阳娜娜</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com/" title="台湾傻逼林" target="_blank">台湾傻逼林</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          <div id="music163player">
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=29491052&auto=0&height=66">
+    </iframe>
+</div>
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#准备"><span class="nav-number">2.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#购买-VPS"><span class="nav-number">3.</span> <span class="nav-text">购买 VPS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#购买成功"><span class="nav-number">4.</span> <span class="nav-text">购买成功</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-XShell-连接搬瓦工服务器"><span class="nav-number">5.</span> <span class="nav-text">使用 XShell 连接搬瓦工服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建-Shadowsocks-服务"><span class="nav-number">6.</span> <span class="nav-text">搭建 Shadowsocks 服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装锐速-TCP-加速软件"><span class="nav-number">7.</span> <span class="nav-text">安装锐速 TCP 加速软件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载酸酸，配置酸酸"><span class="nav-number">8.</span> <span class="nav-text">下载酸酸，配置酸酸</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结尾"><span class="nav-number">9.</span> <span class="nav-text">结尾</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="heart">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">赵旭宁</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

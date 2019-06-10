@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Java,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="回首向来萧瑟处·blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="java集合框架学习（Map篇）">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java集合框架学习（Map篇）">
+<meta property="og:url" content="http://yoursite.com/2018/01/31/java集合框架学习(Map)/index.html">
+<meta property="og:site_name" content="回首向来萧瑟处·blog">
+<meta property="og:description" content="java集合框架学习（Map篇）">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2091636-d29f90d10decdb32.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/659">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2091636-9ffef065a19114e3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/320">
+<meta property="og:image" content="http://img.blog.csdn.net/20170822182727086?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd3oyNDk4NjMwOTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/4761309-4b6860d66b903c54.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/581">
+<meta property="og:updated_time" content="2019-03-11T09:03:15.894Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java集合框架学习（Map篇）">
+<meta name="twitter:description" content="java集合框架学习（Map篇）">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/2091636-d29f90d10decdb32.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/659">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/01/31/java集合框架学习(Map)/">
+
+
+
+
+
+  <title>java集合框架学习（Map篇） | 回首向来萧瑟处·blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/zhaoxuning233/zhaoxuning233.github.io"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+      <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">回首向来萧瑟处·blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+      </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/31/java集合框架学习(Map)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="赵旭宁">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="回首向来萧瑟处·blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">java集合框架学习（Map篇）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-31T15:50:57+08:00">
+                2018-01-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,529 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>java集合框架学习（Map篇）<br><a id="more"></a></p>
+<h2 id="什么是Map？"><a href="#什么是Map？" class="headerlink" title="什么是Map？"></a>什么是Map？</h2><p>Map，其实Map相当于ArrayList或者更简单的数组的一种扩展、推广。在数组中我们可以利用下标即数字访问数组当中的不同元素，那么数字与对象之间形成了一种关联，那么如果将这个数字的概念扩展成为对象，那同样的我们可以将对象与对象之间关联起来。即Map，也称为映射表、关联数组、字典允许我们使用一个对象来查找某个对象。</p>
+<h2 id="Map的几种实现？"><a href="#Map的几种实现？" class="headerlink" title="Map的几种实现？"></a>Map的几种实现？</h2><p>Map接口的具体实现有HashMap，TreeMap，LinkedHashMap，WeakHashMap、ConcurrentHashMap、IdentityHashMap等实现。</p>
+<ul>
+<li><p>HashMap：Map基于散列表的实现（它取代了HashTable），插入和查询键值对的开销是固定的。可以通过构造器设置容量和负载因子，以调整容器的性能。</p>
+</li>
+<li><p>LinkedHashMap：类似于HashMap，但是迭代遍历时，取得“键值对”的顺序是其插入次序，或者是最近最少使用的次序，之比HashMap慢一点，而在迭代访问时更快，因为其内部是使用链表维护内部次序。（也叫链接映射表）</p>
+</li>
+<li><p>TreeMap：基于红黑树的实现，特点在于得到的结果，是经过排序的，TreeMap是唯一带有subMap()的Map,其可以返回一个子树。（也叫树映射表）</p>
+</li>
+<li><p>ConcurrentHashMap：一种线程安全的Map，其不涉及同步加锁。</p>
+</li>
+<li><p>WeakHashMap：协同垃圾回收器工作，删除无用的键和该键的引用。（也叫弱散列映射表）</p>
+</li>
+<li><p>IdentityHashMap：这个映射表中键的散列值不是通过hashCode计算的，而是通过System.identityHashCode方法计算的。这是Object.hashCode方法根据对象的内存地址来计算散列码时所使用的方式。而且在对两个对象进行比较时，identityHashMap类使用==，而不是equals。（也叫标识散列映射表）</p>
+</li>
+<li><p>EnumMap：它是一个键类型为枚举类型的映射表，它可以直接且高效的用一个值数组实现。在使用时，需要咋构造器中指定键的类型：<br>  EnumMap&lt;Weekday，Employee&gt; personMap = new EnumMap&lt;Weekday，Employee&gt;(Weekday.class);(也叫做枚举映射表)</p>
+</li>
+</ul>
+<h2 id="HashMap-？"><a href="#HashMap-？" class="headerlink" title="HashMap ？"></a>HashMap ？</h2><p>Java中数据存储方式最底层的两种结构，一种是数组，另一种就是链表。</p>
+<ul>
+<li>数组的特点：连续空间，寻址迅速，但是在删除或者添加元素的时候需要有较大幅度的移动，所以查询速度快，增删较慢。</li>
+<li>链表的特点：由于空间不连续，寻址困难，增删元素只需修改指针，所以查询慢、增删快。</li>
+<li>哈希表就是结合了数组和链表，具有较快的查询速度，和较快的增删速度。</li>
+</ul>
+<p>HashMap的实现主要用到了哈希表的链地址法。即使用数组+链表的方式实现。<br><img src="https://upload-images.jianshu.io/upload_images/2091636-d29f90d10decdb32.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/659" alt></p>
+<blockquote>
+<p>如图长度为16的数组中，每个元素存储的是一个链表的头结点。元素的key通过散列函数计算得到散列值，然后根据散列值对数组长度取模得到的。</p>
+</blockquote>
+<blockquote>
+<p>比如上述哈希表中，12%16=12 , 28%16=12, 108%16=12, 140%16=12。所以12、28、108以及140都存储在数组下标为12的位置。</p>
+</blockquote>
+<blockquote>
+<p>它的内部是用Entity数组来实现的，属性有key，value，next</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/2091636-9ffef065a19114e3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/320" alt></p>
+<h2 id="Map中的方法？"><a href="#Map中的方法？" class="headerlink" title="Map中的方法？"></a>Map中的方法？</h2><p><img src="http://img.blog.csdn.net/20170822182727086?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvd3oyNDk4NjMwOTE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt></p>
+<p><em>A.PUT方法</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">map.put(key,value)</span><br></pre></td></tr></table></figure></p>
+<p>key通过散列后，得到散列值，在经过计算得出应该插入的”桶”的序号。</p>
+<p><em>B.get()操作</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">value = map.get(key)</span><br></pre></td></tr></table></figure></p>
+<p>通过key在map中找到对应的value值，key-value也称之为键值对。</p>
+<p><em>C.Map的遍历</em></p>
+<p>Map的遍历大体分为三种：</p>
+<ul>
+<li>遍历Map.entrySet() :它的每一个元素都是Map.Entry对象，这个对象中，放着的就是Map中的某一对key-value</li>
+<li>遍历Map.keySet() :它是Map中key值得集合，可以通过遍历这个集合来读取Map中的元素</li>
+<li>遍历Map.values() :它是Map中value的集合，可以通过这个集合直接遍历Map中的值，却不能读取key</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line">package com.sort;</span><br><span class="line"></span><br><span class="line">import java.util.HashMap;</span><br><span class="line">import java.util.Iterator;</span><br><span class="line">import java.util.Map;</span><br><span class="line">import java.util.Set;</span><br><span class="line">import java.util.Map.Entry;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * map集合和set集合一样是无序的</span><br><span class="line"> * map集合遍历的几种常用方法</span><br><span class="line"> * @author Owner</span><br><span class="line"> *</span><br><span class="line"> */</span><br><span class="line">public class MapTest &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">        Map&lt;String, String&gt; map = new HashMap&lt;String, String&gt;();</span><br><span class="line"></span><br><span class="line">        map.put(&quot;a&quot;, &quot;zhangsan&quot;);</span><br><span class="line">        map.put(&quot;b&quot;, &quot;lisi&quot;);</span><br><span class="line">        map.put(&quot;c&quot;, &quot;wangwu&quot;);</span><br><span class="line"></span><br><span class="line">        //System.out.println(map);</span><br><span class="line"></span><br><span class="line">        /**</span><br><span class="line">         * 方法一遍历map</span><br><span class="line">         */</span><br><span class="line">        Set&lt;String&gt; keySet = map.keySet();</span><br><span class="line"></span><br><span class="line">        for(Iterator&lt;String&gt; iterator = keySet.iterator();iterator.hasNext();)&#123;</span><br><span class="line">            String key = iterator.next();</span><br><span class="line"></span><br><span class="line">            String value = map.get(key);</span><br><span class="line"></span><br><span class="line">            System.out.println(key+&quot;=&quot;+value);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;**********************&quot;);</span><br><span class="line"></span><br><span class="line">        /**</span><br><span class="line">         * 方法二遍历map</span><br><span class="line">         */</span><br><span class="line">        for(String key : map.keySet())&#123;</span><br><span class="line">            System.out.println(key+&quot;=&quot;+map.get(key));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;**********************&quot;);</span><br><span class="line"></span><br><span class="line">        /**</span><br><span class="line">         * 方法三遍历map，推荐使用该方法遍历map集合，尤其是容量大时</span><br><span class="line">         */</span><br><span class="line">        for(Map.Entry&lt;String, String&gt; entry : map.entrySet())&#123;</span><br><span class="line">            System.out.println(entry.getKey()+&quot;=&quot;+entry.getValue());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;**********************&quot;);</span><br><span class="line"></span><br><span class="line">        /**</span><br><span class="line">         * 方法四遍历map</span><br><span class="line">         */</span><br><span class="line">        Set&lt;Entry&lt;String, String&gt;&gt; entrySet = map.entrySet();</span><br><span class="line"></span><br><span class="line">        for(Iterator&lt;Map.Entry&lt;String, String&gt;&gt; iterator = entrySet.iterator();iterator.hasNext();)&#123;</span><br><span class="line">            Map.Entry&lt;String, String&gt; entry = iterator.next();</span><br><span class="line"></span><br><span class="line">            System.out.println(entry.getKey()+&quot;=&quot;+entry.getValue());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        System.out.println(&quot;**********************&quot;);</span><br><span class="line">        /**</span><br><span class="line">         * 方法五，这种方法遍历的是所有的值</span><br><span class="line">         */</span><br><span class="line">        for(String value : map.values())&#123;</span><br><span class="line">            System.out.println(value);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="TreeMap？"><a href="#TreeMap？" class="headerlink" title="TreeMap？"></a>TreeMap？</h2><p>TreeMap是基于红黑树的实现，也是记录了key-value的映射关系，该映射根据key的自然排序进行排序或者根据构造方法中传入的比较器进行排序，也就是说TreeMap是有序的key-value集合，TreeMap不允许key-value为空。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/4761309-4b6860d66b903c54.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/581" alt></p>
+<h3 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a><em>构造方法</em></h3><ul>
+<li>public TreeMap() :空的构造方法，默认容量为0</li>
+<li>public TreeMap(Comparator&lt;? super K&gt; comparator)：需要一个Comparator比较器作为参数，因为TreeMap是一个有序的key-value集合，所以可以自定义比较器进行设定元素的排序规则</li>
+<li>public TreeMap(Map&lt;? extends K, ? extends V&gt; m)：将一个Map构建成一个TreeMap</li>
+<li>public TreeMap(SortedMap&lt;K, ? extends V&gt; m)：将一个SortedMap构建成一个TreeMap</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/31/java集合框架学习(List)/" rel="next" title="java集合框架学习（List篇）">
+                <i class="fa fa-chevron-left"></i> java集合框架学习（List篇）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/31/java集合框架学习(Set)/" rel="prev" title="java集合框架学习（Set篇）">
+                java集合框架学习（Set篇） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/head.jpeg" alt="赵旭宁">
+            
+              <p class="site-author-name" itemprop="name">赵旭宁</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/zhaoxuning233/zhaoxuning233.github.io.git" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zxn1136714686@163.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://weibo.com/login.php" target="_blank" title="WeiBo">
+                    
+                      <i class="fa fa-fw fa-twitter"></i>WeiBo</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                我的粉丝
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="daevasong.github.io" title="Devae_Song" target="_blank">Devae_Song</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com/" title="张二多" target="_blank">张二多</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com/" title="欧阳娜娜" target="_blank">欧阳娜娜</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com/" title="台湾傻逼林" target="_blank">台湾傻逼林</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          <div id="music163player">
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=29491052&auto=0&height=66">
+    </iframe>
+</div>
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是Map？"><span class="nav-number">1.</span> <span class="nav-text">什么是Map？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Map的几种实现？"><span class="nav-number">2.</span> <span class="nav-text">Map的几种实现？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashMap-？"><span class="nav-number">3.</span> <span class="nav-text">HashMap ？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Map中的方法？"><span class="nav-number">4.</span> <span class="nav-text">Map中的方法？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TreeMap？"><span class="nav-number">5.</span> <span class="nav-text">TreeMap？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#构造方法"><span class="nav-number">5.1.</span> <span class="nav-text">构造方法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="heart">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">赵旭宁</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

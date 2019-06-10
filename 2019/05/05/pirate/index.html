@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="博弈论,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="回首向来萧瑟处·blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="海盗分金问题的结题步骤和对于该问题的推广探索">
+<meta name="keywords" content="博弈论">
+<meta property="og:type" content="article">
+<meta property="og:title" content="海盗分金">
+<meta property="og:url" content="http://yoursite.com/2019/05/05/pirate/index.html">
+<meta property="og:site_name" content="回首向来萧瑟处·blog">
+<meta property="og:description" content="海盗分金问题的结题步骤和对于该问题的推广探索">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-10T09:02:19.999Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="海盗分金">
+<meta name="twitter:description" content="海盗分金问题的结题步骤和对于该问题的推广探索">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/05/pirate/">
+
+
+
+
+
+  <title>海盗分金 | 回首向来萧瑟处·blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/zhaoxuning233/zhaoxuning233.github.io"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+      <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">回首向来萧瑟处·blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+      </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/05/pirate/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="赵旭宁">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="回首向来萧瑟处·blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">海盗分金</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-05T10:39:57+08:00">
+                2019-05-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数学/" itemprop="url" rel="index">
+                    <span itemprop="name">数学</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,049 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  7分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>海盗分金问题的结题步骤和对于该问题的推广探索<br><a id="more"></a></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>昨日闲暇饭后之余和一众老友谈论到宇宙，外星人。又从外星人话题扯到了博弈论。于是老生常谈，我还是出了那道最经典的海盗分金问题供大家饭后消遣。</p>
+<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>假设在一艘船上有5名海盗，并偶然间得到了100枚金币，现在要按照顺序，每名海盗提出一种具体的分配金币的意见（具体到每一个人应分得多少枚金币），由在场所有海盗（包括自己）进行表决，<strong>若大于一半的人认可此方案，方案通过，否则，此海盗将被扔入大海。</strong>，但是这五名海盗有着自己的生存秩序，分别排列成了“老大”，“老二”，“老三”，“老四”，“老五”（相应的他们的地位也是这样排序，老大先提方案，然后老二，老三等等）。假设每名海盗都是经济学假定的“理性人”，即绝顶聪明，能充分考虑到每一种情况而进行每次的判断，在投票过程中海盗们不能交流，且它们都遵守此规则问第一名海盗应该怎样提出分配方案，才能使自己的方案通过且自身利益最大化？</p>
+<h2 id="推导"><a href="#推导" class="headerlink" title="推导"></a>推导</h2><p><strong>解决此类问题最好的办法就是用倒推法，其中我认为包含了一种递归的思想</strong></p>
+<ul>
+<li>step 1</li>
+</ul>
+<p>当只有最后两名海盗，绰号分别是老四老五的时候（其他三个估计已经死了）。此时，会出现一种情况，就是老四提任何方案，都已经可以无视老五的选择，因为始终他自己会有1票同意，达到50%<br><br>所以此时，老四的方案一定是自己100枚金币，老五0个，此时无论老五如何投反对票，都不会影响方案。<br><br>得出结论：(n=2)——&gt;(100,0)</p>
+<ul>
+<li>step 2</li>
+</ul>
+<p>如果此时老三在场的话，会如何决策呢？老四首先不论如何都不会同意老三的方案，并且希望老三赶紧死，然后自己就可以独吞这100个金币。所以老三如果想要票数超过50%，那在3个人中，除了自己一定要争取到1票，所以他只要给老五1个金币，老五就会无条件的支持他（因为老五也是聪明人，如果老五不同意，老三死了之后，又回到了老四的方案，在老四的方案中他一个金币都得不到）。<br><br>得出结论：(n=3)———&gt;(99,0,1)</p>
+<ul>
+<li>step 3</li>
+</ul>
+<p>同以上的推论，老二的方案中老三也是无论如何都要投反对票的，而且老二需要争取到另外1票就可以了。所以，此时老二给了上一轮在老三的方案中一无所有的老四一枚金币，这样老四就会支持他了。（老四的视角中，如果到了老三的方案他将一无所有，所以老二只需给他1个金币就可以成功收买）<br>得出结论：（n=4）——&gt;(99,0,1,0)</p>
+<ul>
+<li>step 4</li>
+</ul>
+<p>推理同上，老大需要3票支持，出去自己1票，还需要争取2票同意。所以容易得知，老二无论如何争取不到，只需要争取在老二的方案中一无所获的老三和老五就可以了，分别给1个金币就ok。<br>得出结论：（n=5）——&gt;(98,0,1,0,1)</p>
+<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><p>若此时有10名海盗参与投票分赃，推理过程略，思想都一样，如下图所示具体的方案</p>
+<table>
+<thead>
+<tr>
+<th>海盗数量</th>
+<th>海盗1</th>
+<th>海盗2</th>
+<th>海盗3</th>
+<th>海盗4</th>
+<th>海盗5</th>
+<th>海盗6</th>
+<th>海盗7</th>
+<th>海盗8</th>
+<th>海盗9</th>
+<th>海盗10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>n=1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>100</td>
+</tr>
+<tr>
+<td>n=2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>100</td>
+<td>0</td>
+</tr>
+<tr>
+<td>n=3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>99</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>n=4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>99</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>n=5</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>98</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>n=6</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>98</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>n=7</td>
+<td></td>
+<td></td>
+<td></td>
+<td>97</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>n=8</td>
+<td></td>
+<td></td>
+<td>97</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>n=9</td>
+<td></td>
+<td>96</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>n=10</td>
+<td>96</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>经过推理得出以上10名海盗的分金币情况，进一步抽象后，可以得出人数n和第一名海盗金币个数的表格</p>
+<table>
+<thead>
+<tr>
+<th>海盗数量</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第一名金币数量</td>
+<td>100</td>
+<td>100</td>
+<td>99</td>
+<td>99</td>
+<td>98</td>
+<td>98</td>
+<td>97</td>
+<td>97</td>
+<td>96</td>
+<td>96</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">通项公式：X = 101 - [(n+1)/2]</span><br><span class="line">n为海盗数量，X为当前提方案海盗应该得到的金币数，[]为取整运算</span><br></pre></td></tr></table></figure>
+<h2 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h2><p>已知通项公式 X = 101 - [(n+1)/2]<br><strong>当X=0时，n值为201,202，那么以上X,n所代表的意义是什么？</strong><br>可以这么理解，当有201个海盗的时候，第一个海盗提的方案，就是自己拿的金币数为0（为了保命），剩下的100枚金币全部用于贿赂那些相隔一位的海盗。</p>
+<p>得出如下总结：</p>
+<ul>
+<li>当n=201及n=202时，201号/202号海盗的最大化收益为0，但可保命。</li>
+<li>当n=203时，203号海盗必须获得102张赞成票，但他无法用100个宝石收买到101名同伙的支持。因此，无论203号提出什么样的分配方案，他都注定会被扔到海里去喂鱼。</li>
+<li>当n=204时，204号海盗必须获得102张赞成票，203号为了能保住性命，就必须让204号的方案通过，避免由203号自己来提出分配方案，所以无论204号海盗提出什么样的方案，都可以得到203号的坚定支持。这样204号海盗就可以保命：他可以得到他自己的1票、203号的1票、以及用100个宝石收买到的100名同伙的赞成票，刚好达到所需的半数支持。能从204号那里获得1个宝石的海盗，必属于按照202号海盗的方案将一无所获的那102名海盗之列。</li>
+<li>当n=205时，205号海盗必须获得103张赞成票，但他无法用100个宝石收买到102名同伙的支持。因此，无论205提出什么样的分配方案，他都注定会被扔到海里去喂鱼。</li>
+<li>当n=206时，206号海盗必须获得103张赞成票，他可以得到205号的坚定支持，但他无法用100个宝石收买到101名同伙的支持。因此，无论206号提出什么样的分配方案，他都注定会被扔到海里去喂鱼。</li>
+<li>当n=207时，207号海盗必须获得104张赞成票，他可以得到205号和206号的坚定支持，但他无法用100个宝石收买到101名同伙的支持。因此，无论207号提出什么样的分配方案，他都注定会被扔到海里去喂鱼。</li>
+<li>当n=208时，208号海盗必须获得104张赞成票，他可以得到205号、206号、207号的坚定支持，加上他自己1票以及收买的100票，使他得以保命。从208号那里获得1个宝石的海盗，必属于那些按照204号方案将一无所获的那104名海盗之列。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">眼下可以看出一条新的、此后将一直有效的规律：</span><br><span class="line"></span><br><span class="line">那些方案能通过的海盗（他们的分配方案全都是把宝石用来收买100名同伙，自己连1个宝石都得不到）相隔的距离越来越远，而在他们之间的海盗则无论提出什么样的方案都会被扔进海里。因此，为了保命，他们必会投票支持排在他们前面的海盗提出的任何分配方案。得以避免葬身鱼腹的海盗包括201、202、204、208、216、232、264、328、456号，</span><br><span class="line">即200+1、200+2、200+4、200+8、200+16、200+32、200+64、200+128、200+256。即</span><br><span class="line">200+2的0次幂，200+2的1次幂，200+2的2次幂，200+2的3次幂，200+2的4次幂，200+2的5次幂，200+2的6次幂，200+2的7次幂，200+2的8次幂，</span><br><span class="line">即其号码等于200加2的某次幂。</span><br></pre></td></tr></table></figure>
+<h2 id="未完"><a href="#未完" class="headerlink" title="未完"></a>未完</h2><p>目前只探讨了，对于海盗人数是发散的讨论，并没有对于金币数和海盗人数同时讨论的情况，当海盗人数和金币数都为变量时，则可以画出一个函数图像，有时间会继续思考，就到这里了。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/博弈论/" rel="tag"># 博弈论</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/09/hotfix/" rel="next" title="集成Tinker实现热更新">
+                <i class="fa fa-chevron-left"></i> 集成Tinker实现热更新
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/head.jpeg" alt="赵旭宁">
+            
+              <p class="site-author-name" itemprop="name">赵旭宁</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/zhaoxuning233/zhaoxuning233.github.io.git" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zxn1136714686@163.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://weibo.com/login.php" target="_blank" title="WeiBo">
+                    
+                      <i class="fa fa-fw fa-twitter"></i>WeiBo</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                我的粉丝
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="daevasong.github.io" title="Devae_Song" target="_blank">Devae_Song</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com/" title="张二多" target="_blank">张二多</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com/" title="欧阳娜娜" target="_blank">欧阳娜娜</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com/" title="台湾傻逼林" target="_blank">台湾傻逼林</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          <div id="music163player">
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=29491052&auto=0&height=66">
+    </iframe>
+</div>
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题描述"><span class="nav-number">2.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推导"><span class="nav-number">3.</span> <span class="nav-text">推导</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展"><span class="nav-number">4.</span> <span class="nav-text">扩展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#讨论"><span class="nav-number">5.</span> <span class="nav-text">讨论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#未完"><span class="nav-number">6.</span> <span class="nav-text">未完</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="heart">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">赵旭宁</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

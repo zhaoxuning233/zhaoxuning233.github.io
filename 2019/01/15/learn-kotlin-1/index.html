@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Kotlin,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="回首向来萧瑟处·blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="记录学习路上的点滴">
+<meta name="keywords" content="Kotlin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学习Kotlin第一篇">
+<meta property="og:url" content="http://yoursite.com/2019/01/15/learn-kotlin-1/index.html">
+<meta property="og:site_name" content="回首向来萧瑟处·blog">
+<meta property="og:description" content="记录学习路上的点滴">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhaoxuning233/zhaoxuning233.github.io/master/2019/01/15/learn-kotlin-1/screen.gif">
+<meta property="og:image" content="http://yoursite.com/2019/01/15/learn-kotlin-1/CoordinatorLayout布局.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/15/learn-kotlin-1/Toolbar默认.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/15/learn-kotlin-1/ToolBar适配.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/15/learn-kotlin-1/AppBarLayout.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/15/learn-kotlin-1/CollapsingToolbarLayout.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhaoxuning233/zhaoxuning233.github.io/master/2019/01/15/learn-kotlin-1/bilibili.gif">
+<meta property="og:image" content="http://yoursite.com/2019/01/15/learn-kotlin-1/ToolBarImageView.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/15/learn-kotlin-1/demo1.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/15/learn-kotlin-1/fab.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/15/learn-kotlin-1/demo2.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/15/learn-kotlin-1/NestedScrollView.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhaoxuning233/zhaoxuning233.github.io/master/2019/01/15/learn-kotlin-1/exit.gif">
+<meta property="og:image" content="http://yoursite.com/2019/01/15/learn-kotlin-1/cardview.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/15/learn-kotlin-1/MainActivity.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/15/learn-kotlin-1/activity_main.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/15/learn-kotlin-1/MainAdapter.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/15/learn-kotlin-1/item_text.png">
+<meta property="og:updated_time" content="2019-01-15T06:48:46.643Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="学习Kotlin第一篇">
+<meta name="twitter:description" content="记录学习路上的点滴">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/zhaoxuning233/zhaoxuning233.github.io/master/2019/01/15/learn-kotlin-1/screen.gif">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/15/learn-kotlin-1/">
+
+
+
+
+
+  <title>学习Kotlin第一篇 | 回首向来萧瑟处·blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/zhaoxuning233/zhaoxuning233.github.io"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+      <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">回首向来萧瑟处·blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+      </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/15/learn-kotlin-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="赵旭宁">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="回首向来萧瑟处·blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">学习Kotlin第一篇</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-15T08:38:57+08:00">
+                2019-01-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Kotlin/" itemprop="url" rel="index">
+                    <span itemprop="name">Kotlin</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Kotlin/Material-Design/" itemprop="url" rel="index">
+                    <span itemprop="name">Material Design</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,611 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>记录学习路上的点滴<br><a id="more"></a></p>
+<h2 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h2><blockquote>
+<p>此效果实现并不复杂，此项目是在实现功能的基础上，主要学习Kotlin的语法，用法。</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/zhaoxuning233/zhaoxuning233.github.io/master/2019/01/15/learn-kotlin-1/screen.gif" alt></p>
+<h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><p><strong>此效果如果用老旧的Android Api实现将会非常复杂，不仅需要大量的动画，还需要计算高度渲染等复杂问题。但是如果用Material Design来实现将会非常简单。主要用到以下几个Material Design原生组件</strong></p>
+<ul>
+<li>CoordinatorLayout</li>
+<li>AppBarLayout</li>
+<li>CollapsingToolbarLayout</li>
+<li>FloatingActionButton</li>
+<li>NestedScrollView</li>
+<li>CardView</li>
+</ul>
+<h2 id="CoordinatorLayout"><a href="#CoordinatorLayout" class="headerlink" title="CoordinatorLayout"></a>CoordinatorLayout</h2><p> <em>又名协调者布局，它是support.design包中的控件，所以使用的时候要导入compile ‘com.android.support:design:23.3.0’包。简单来说，CoordinatorLayout是用来协调其子view并以触摸影响布局的形式产生动画效果的一个super-powered FrameLayout，其典型的子View包括：FloatingActionButton，AppBarLayout。CoordinatorLayout是一个顶级父View</em></p>
+<blockquote>
+<p>简单来说，如果需要在布局中协调多个 View 进行互动，例如：移动、动画等等。在以前，是需要同时对这些 View 进行操作并响应各自的状态的，而有了 CoordinatorLayout ，这些它都帮我们实现好了交互的接口，我们只需要去关心具体的细节。<br>在 Material Design 中，很多地方都用到了 CoordinatorLayout，举几个例子：</p>
+<ul>
+<li>SnackBar 出现的时候，浮动操作按钮（FAB）上移。</li>
+<li>配合 ToolBar ，实现一个可伸缩头部 Title。</li>
+<li>配合 AppBarLayout，实现一个具体的是视差动画的效果。</li>
+</ul>
+</blockquote>
+<p><strong>虽然这里讲的是 CoordinatorLayout ，但是其实对于开发者而言，我们是不会和 CoordinatorLayout 直接打交道的，而 CoordinatorLayout 透出来的接口 Behavior 才是我们需要关心和实现的。<br>CoordinatorLayout 和 Behavior 之间进行交互，将其内需要被协调的 View ，之间的变动，通过 Behavior 传递出来，开发者只需要针对 Behavior 中定义好的接口方法，进行对应的实现即可。</strong></p>
+<h3 id="如下一个CoordinatorLayout布局就写好了，很简单，想象成LinearLayout就ok了，因为他也是个父布局。"><a href="#如下一个CoordinatorLayout布局就写好了，很简单，想象成LinearLayout就ok了，因为他也是个父布局。" class="headerlink" title="如下一个CoordinatorLayout布局就写好了，很简单，想象成LinearLayout就ok了，因为他也是个父布局。"></a>如下一个CoordinatorLayout布局就写好了，很简单，想象成LinearLayout就ok了，因为他也是个父布局。</h3><p><img src="/2019/01/15/learn-kotlin-1/CoordinatorLayout布局.png" alt></p>
+<blockquote>
+<p>补充<br><br>android:fitsSystemWindows=”true” 属性可以让view根据系统窗口来调整自己的布局；简单点说就是我们在设置应用布局时是否考虑系统窗口布局，这里系统窗口包括系统状态栏、导航栏、输入法等。效果如下</p>
+</blockquote>
+<div style="float:left;border:solid 1px 000;margin:2px;"><img src="/2019/01/15/learn-kotlin-1/../learn-kotlin-1\Toolbar默认.png" width="400" height="460"></div>
+
+<p><div style="float:left;border:solid 1px 000;margin:2px;"><img src="/2019/01/15/learn-kotlin-1/../learn-kotlin-1\ToolBar适配.png" width="400" height="460"></div><br></p>
+<h2 id="AppBarLayout"><a href="#AppBarLayout" class="headerlink" title="AppBarLayout"></a>AppBarLayout</h2><p><em>AppbarLayout继承自LinearLayout,它就是一个垂直方向的LinearLayout,在LinearLayout的基础上添加了一些材料设计的概念和特性，即滑动手势。它可以让你定制在某个可滑动的View（如：ScrollView ,ListView ,RecyclerView 等）滑动手势发生改变时，内部的子View 该做什么动作。子View应该提供滑动时他们期望的响应的动作Behavior,通过setScrollFlags(int)，或者xml 中使用属性</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app:layout_scrollFlags</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>注意：AppbarLayout 严重依赖于CoordinatorLayout，必须用于CoordinatorLayout 的直接子View，如果你将AppbarLayout 放在其他的ViewGroup 里面，那么它的这些功能是无效的。</p>
+</blockquote>
+<p>AppBarLayou的scrollFlagsscroll效果一共有五种(篇幅有限，以后自己亲自试验吧，不贴图了)</p>
+<ul>
+<li>scroll</li>
+<li>enterAlways</li>
+<li>enterAlwaysCollapsed</li>
+<li>exitUntilCollapsed</li>
+<li>snap</li>
+</ul>
+<p><img src="/2019/01/15/learn-kotlin-1/AppBarLayout.png" alt></p>
+<h2 id="CollapsingToolbarLayout"><a href="#CollapsingToolbarLayout" class="headerlink" title="CollapsingToolbarLayout"></a>CollapsingToolbarLayout</h2><p>_CollapsingToolbarLayout作用是提供了一个可以折叠的Toolbar，它继承至FrameLayout，给它设置layout_scrollFlags就可以实现折叠效果_</p>
+<p>CollapsingToolbarLayout的子布局有3种折叠模式（Toolbar中设置的app:layout_collapseMode）</p>
+<ul>
+<li>off：这个是默认属性，布局将正常显示，没有折叠的行为。</li>
+<li>pin：CollapsingToolbarLayout折叠后，此布局将固定在顶部。</li>
+<li>parallax：CollapsingToolbarLayout折叠时，此布局也会有视差折叠效果。</li>
+</ul>
+<p>当CollapsingToolbarLayout的子布局设置了parallax模式时，我们还可以通过app:layout_collapseParallaxMultiplier设置视差滚动因子，值为：0~1。</p>
+<p><img src="/2019/01/15/learn-kotlin-1/CollapsingToolbarLayout.png" alt></p>
+<p>然后在CollapsingToolbarLayout中加入自己的布局，一般会放置一个ToolBar。如下Bilibili的效果图(来个最喜欢的主播真会玩：D)<br><img src="https://raw.githubusercontent.com/zhaoxuning233/zhaoxuning233.github.io/master/2019/01/15/learn-kotlin-1/bilibili.gif" alt></p>
+<p>继续编写ToolBar和上面的一个ImageView，如下<br><img src="/2019/01/15/learn-kotlin-1/ToolBarImageView.png" alt><br><img src="/2019/01/15/learn-kotlin-1/demo1.png" alt></p>
+<h2 id="FloatingActionButton"><a href="#FloatingActionButton" class="headerlink" title="FloatingActionButton"></a>FloatingActionButton</h2><p><em>FloatingActionButton简称FAB。<br>FAB代表一个App或一个页面中最主要的操作，如果一个App的每个页面都有FAB,则通常表示该App最主要的功能是通过该FAB操作的。<br>为了突出FAB的重要性，一个页面最好只有一个FAB。个人觉得这就是一个海拔高度最高的全局按钮Button</em><br><img src="/2019/01/15/learn-kotlin-1/fab.png" alt><br><img src="/2019/01/15/learn-kotlin-1/demo2.png" alt></p>
+<h2 id="NestedScrollView"><a href="#NestedScrollView" class="headerlink" title="NestedScrollView"></a>NestedScrollView</h2><p><em>NestedScrollView 即 支持嵌套滑动的 ScrollView。<br>因此，我们可以简单的把 NestedScrollView 类比为 ScrollView，其作用就是作为控件父布局，从而具备（嵌套）滑动功能。<br>NestedScrollView 与 ScrollView 的区别就在于 NestedScrollView 支持 嵌套滑动，无论是作为父控件还是子控件，嵌套滑动都支持，且默认开启。<br>因此，在一些需要支持嵌套滑动的情景中，比如一个 ScrollView 内部包裹一个 RecyclerView，那么就会产生滑动冲突，这个问题就需要你自己去解决。而如果使用 NestedScrollView 包裹 RecyclerView，嵌套滑动天然支持，你无需做什么就可以实现前面想要实现的功能了。</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NestedScrollView内部必须有一个父级布局的layout，如LinearLayout，RelativeLayout</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/01/15/learn-kotlin-1/NestedScrollView.png" alt></p>
+<p>Ok，到了现在，基本完成了，想要实现的效果，全都是xml实现的，真是神奇啊。效果图如下<br><img src="https://raw.githubusercontent.com/zhaoxuning233/zhaoxuning233.github.io/master/2019/01/15/learn-kotlin-1/exit.gif" alt></p>
+<h2 id="CardView"><a href="#CardView" class="headerlink" title="CardView"></a>CardView</h2><p>CardView是google在5.0中提供带圆角和阴影的布局，继承自FrameLayout</p>
+<p>CardView的一些属性设置</p>
+<ul>
+<li>android:cardBackgroundColor 设置背景</li>
+<li>android:cardCornerRadius 设置圆角</li>
+<li>app:cardElevation 设置阴影大小</li>
+<li>app:cardMaxElevation 设置阴影的最大高度</li>
+<li>app:contentPadding 内容距离边界的距离</li>
+<li>app:contentPaddingXXX 设置局部的内边距，替换Padding的，在CardView中设置Padding是不起作用的。</li>
+<li>app:cardUseCompatPadding 如果您需要将CardView与其他视图对齐，可能在21以下，可以将此标志设置为true，CardView将在21之后的平台上添加相同的填充值。</li>
+<li>app:cardPreventCornerOverlap 是否裁剪边界以防止重叠</li>
+</ul>
+<p>实现方式如下<br><img src="/2019/01/15/learn-kotlin-1/cardview.png" alt></p>
+<blockquote>
+<p>以上就可以，实现上面要实现的效果了，但是为了初步学习Kotlin，只是写写简单的xml就没意思了，先动手写个列表吧，那就先把底下的CardView都拿掉，开始写个最简单的列表</p>
+</blockquote>
+<h2 id="MainActivity"><a href="#MainActivity" class="headerlink" title="MainActivity"></a>MainActivity</h2><p><img src="/2019/01/15/learn-kotlin-1/MainActivity.png" alt></p>
+<h2 id="activity-main"><a href="#activity-main" class="headerlink" title="activity_main"></a>activity_main</h2><p><img src="/2019/01/15/learn-kotlin-1/activity_main.png" alt></p>
+<h2 id="MainAdapter"><a href="#MainAdapter" class="headerlink" title="MainAdapter"></a>MainAdapter</h2><p><img src="/2019/01/15/learn-kotlin-1/MainAdapter.png" alt></p>
+<h2 id="item-text"><a href="#item-text" class="headerlink" title="item_text"></a>item_text</h2><p><img src="/2019/01/15/learn-kotlin-1/item_text.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">kotlin小总结</span><br><span class="line">1.对象不用new了，直接等号后面写类名，然后传参数</span><br><span class="line">2.由于import kotlinx.android.synthetic.main.activity_about.* 这句话的存在，不用写findviewbyid了，直接用控件在xml中的id，就可以操作了</span><br><span class="line">3.构造集合的方式 val mList: ArrayList&lt;String&gt; = arrayListOf()</span><br><span class="line">4.变量用var，常量用val，先这么理解</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Kotlin/" rel="tag"># Kotlin</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/04/搭建酸酸的一次经过/" rel="next" title="记录搭建酸酸的一次经过">
+                <i class="fa fa-chevron-left"></i> 记录搭建酸酸的一次经过
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/16/learn-kotlin-2/" rel="prev" title="学习Kotlin第二篇">
+                学习Kotlin第二篇 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/head.jpeg" alt="赵旭宁">
+            
+              <p class="site-author-name" itemprop="name">赵旭宁</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/zhaoxuning233/zhaoxuning233.github.io.git" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zxn1136714686@163.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://weibo.com/login.php" target="_blank" title="WeiBo">
+                    
+                      <i class="fa fa-fw fa-twitter"></i>WeiBo</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                我的粉丝
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="daevasong.github.io" title="Devae_Song" target="_blank">Devae_Song</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com/" title="张二多" target="_blank">张二多</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com/" title="欧阳娜娜" target="_blank">欧阳娜娜</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com/" title="台湾傻逼林" target="_blank">台湾傻逼林</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          <div id="music163player">
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=29491052&auto=0&height=66">
+    </iframe>
+</div>
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现效果"><span class="nav-number">1.</span> <span class="nav-text">实现效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现思路"><span class="nav-number">2.</span> <span class="nav-text">实现思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CoordinatorLayout"><span class="nav-number">3.</span> <span class="nav-text">CoordinatorLayout</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#如下一个CoordinatorLayout布局就写好了，很简单，想象成LinearLayout就ok了，因为他也是个父布局。"><span class="nav-number">3.1.</span> <span class="nav-text">如下一个CoordinatorLayout布局就写好了，很简单，想象成LinearLayout就ok了，因为他也是个父布局。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AppBarLayout"><span class="nav-number">4.</span> <span class="nav-text">AppBarLayout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CollapsingToolbarLayout"><span class="nav-number">5.</span> <span class="nav-text">CollapsingToolbarLayout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FloatingActionButton"><span class="nav-number">6.</span> <span class="nav-text">FloatingActionButton</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NestedScrollView"><span class="nav-number">7.</span> <span class="nav-text">NestedScrollView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CardView"><span class="nav-number">8.</span> <span class="nav-text">CardView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MainActivity"><span class="nav-number">9.</span> <span class="nav-text">MainActivity</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#activity-main"><span class="nav-number">10.</span> <span class="nav-text">activity_main</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MainAdapter"><span class="nav-number">11.</span> <span class="nav-text">MainAdapter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#item-text"><span class="nav-number">12.</span> <span class="nav-text">item_text</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="heart">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">赵旭宁</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

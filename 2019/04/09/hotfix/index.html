@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="android,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="回首向来萧瑟处·blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="集成bugly的tinker实现app的热更新">
+<meta name="keywords" content="android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="集成Tinker实现热更新">
+<meta property="og:url" content="http://yoursite.com/2019/04/09/hotfix/index.html">
+<meta property="og:site_name" content="回首向来萧瑟处·blog">
+<meta property="og:description" content="集成bugly的tinker实现app的热更新">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/04/09/hotfix/newproduct.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/09/hotfix/appid.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/09/hotfix/oncreate.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/09/hotfix/attach.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/09/hotfix/qudao.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/09/hotfix/release.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/09/hotfix/banben.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/09/hotfix/tinker_support.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/09/hotfix/fabuxinbuding.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/09/hotfix/success.png">
+<meta property="og:updated_time" content="2019-04-09T06:18:51.414Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="集成Tinker实现热更新">
+<meta name="twitter:description" content="集成bugly的tinker实现app的热更新">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/09/hotfix/newproduct.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/04/09/hotfix/">
+
+
+
+
+
+  <title>集成Tinker实现热更新 | 回首向来萧瑟处·blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/zhaoxuning233/zhaoxuning233.github.io"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+      <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">回首向来萧瑟处·blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+      </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/09/hotfix/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="赵旭宁">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="回首向来萧瑟处·blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">集成Tinker实现热更新</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-09T13:29:57+08:00">
+                2019-04-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,421 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>集成bugly的tinker实现app的热更新<br><a id="more"></a></p>
+<h2 id="进入Bugly"><a href="#进入Bugly" class="headerlink" title="进入Bugly"></a>进入Bugly</h2><p>bugly是腾讯团队开源的一个异常上报，运营统计平台。其中有一些使用的功能，比如异常上报，在线升级和热更新等。而热更新就是今天要记录的重点。<br><br><a href="https://bugly.qq.com/v2/" target="_blank" rel="noopener">bugly的官网</a>点这里</p>
+<h2 id="申请自己的产品"><a href="#申请自己的产品" class="headerlink" title="申请自己的产品"></a>申请自己的产品</h2><p>因为是腾讯家的平台，所以我们用QQ号或者微信号就可以登录了，然后去个人中心申请自己的产品，拿到key（所有第三方都是这么个套路）<br><img src="/2019/04/09/hotfix/newproduct.png" alt><br><br>登录完，申请完了之后，如下拿到属于自己产品的AppID<br><br><img src="/2019/04/09/hotfix/appid.png" alt></p>
+<h2 id="集成热更新组件Tinker"><a href="#集成热更新组件Tinker" class="headerlink" title="集成热更新组件Tinker"></a>集成热更新组件Tinker</h2><p>详细的关于tinker的使用方式和开发文档请查看bugly的官方文档<a href="https://bugly.qq.com/docs/user-guide/instruction-manual-android-hotfix/?v=20181014122344" target="_blank" rel="noopener">点我查看文档</a></p>
+<h3 id="1-添加插件依赖"><a href="#1-添加插件依赖" class="headerlink" title="1.添加插件依赖"></a>1.添加插件依赖</h3><p>工程根目录下“build.gradle”文件中添加：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">buildscript &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        jcenter()</span><br><span class="line">    &#125;</span><br><span class="line">    dependencies &#123;</span><br><span class="line">        // tinkersupport插件, 其中lastest.release指拉取最新版本，也可以指定明确版本号，例如1.0.4</span><br><span class="line">        classpath &quot;com.tencent.bugly:tinker-support:1.1.5&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-集成SDK"><a href="#2-集成SDK" class="headerlink" title="2.集成SDK"></a>2.集成SDK</h3><p>在app module的“build.gradle”文件中添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">compile &quot;com.android.support:multidex:1.0.1&quot; // 多dex配置</span><br><span class="line">compile &apos;com.tencent.bugly:crashreport_upgrade:1.3.6&apos;</span><br><span class="line">compile &apos;com.tencent.tinker:tinker-android-lib:1.9.9&apos;</span><br><span class="line">compile &apos;com.tencent.bugly:nativecrashreport:latest.release&apos;</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-添加依赖插件脚本"><a href="#3-添加依赖插件脚本" class="headerlink" title="3.添加依赖插件脚本"></a>3.添加依赖插件脚本</h3><p>在app module的“build.gradle”文件中添加：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apply from: &apos;tinker-support.gradle&apos;</span><br></pre></td></tr></table></figure></p>
+<h3 id="4-配置tinker-support-gradle"><a href="#4-配置tinker-support-gradle" class="headerlink" title="4.配置tinker-support.gradle"></a>4.配置tinker-support.gradle</h3><p>直接从官方文档上复制粘贴即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line">apply plugin: &apos;com.tencent.bugly.tinker-support&apos;</span><br><span class="line"></span><br><span class="line">def bakPath = file(&quot;$&#123;buildDir&#125;/bakApk/&quot;)</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 此处填写每次构建生成的基准包目录</span><br><span class="line"> */</span><br><span class="line">def baseApkDir = &quot;app-0208-15-10-00&quot;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 对于插件各参数的详细解析请参考</span><br><span class="line"> */</span><br><span class="line">tinkerSupport &#123;</span><br><span class="line"></span><br><span class="line">    // 开启tinker-support插件，默认值true</span><br><span class="line">    enable = true</span><br><span class="line"></span><br><span class="line">    // 指定归档目录，默认值当前module的子目录tinker</span><br><span class="line">    autoBackupApkDir = &quot;$&#123;bakPath&#125;&quot;</span><br><span class="line"></span><br><span class="line">    // 是否启用覆盖tinkerPatch配置功能，默认值false</span><br><span class="line">    // 开启后tinkerPatch配置不生效，即无需添加tinkerPatch</span><br><span class="line">    overrideTinkerPatchConfiguration = true</span><br><span class="line"></span><br><span class="line">    // 编译补丁包时，必需指定基线版本的apk，默认值为空</span><br><span class="line">    // 如果为空，则表示不是进行补丁包的编译</span><br><span class="line">    // @&#123;link tinkerPatch.oldApk &#125;</span><br><span class="line">    baseApk = &quot;$&#123;bakPath&#125;/$&#123;baseApkDir&#125;/app-release.apk&quot;</span><br><span class="line"></span><br><span class="line">    // 对应tinker插件applyMapping</span><br><span class="line">    baseApkProguardMapping = &quot;$&#123;bakPath&#125;/$&#123;baseApkDir&#125;/app-release-mapping.txt&quot;</span><br><span class="line"></span><br><span class="line">    // 对应tinker插件applyResourceMapping</span><br><span class="line">    baseApkResourceMapping = &quot;$&#123;bakPath&#125;/$&#123;baseApkDir&#125;/app-release-R.txt&quot;</span><br><span class="line"></span><br><span class="line">    // 构建基准包和补丁包都要指定不同的tinkerId，并且必须保证唯一性</span><br><span class="line">    tinkerId = &quot;base-1.0.1&quot;</span><br><span class="line"></span><br><span class="line">    // 构建多渠道补丁时使用</span><br><span class="line">    // buildAllFlavorsDir = &quot;$&#123;bakPath&#125;/$&#123;baseApkDir&#125;&quot;</span><br><span class="line"></span><br><span class="line">    // 是否启用加固模式，默认为false.(tinker-spport 1.0.7起支持）</span><br><span class="line">    // isProtectedApp = true</span><br><span class="line"></span><br><span class="line">    // 是否开启反射Application模式</span><br><span class="line">    enableProxyApplication = false</span><br><span class="line"></span><br><span class="line">    // 是否支持新增非export的Activity（注意：设置为true才能修改AndroidManifest文件）</span><br><span class="line">    supportHotplugComponent = true</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 一般来说,我们无需对下面的参数做任何的修改</span><br><span class="line"> * 对于各参数的详细介绍请参考:</span><br><span class="line"> * https://github.com/Tencent/tinker/wiki/Tinker-%E6%8E%A5%E5%85%A5%E6%8C%87%E5%8D%97</span><br><span class="line"> */</span><br><span class="line">tinkerPatch &#123;</span><br><span class="line">    //oldApk =&quot;$&#123;bakPath&#125;/$&#123;appName&#125;/app-release.apk&quot;</span><br><span class="line">    ignoreWarning = false</span><br><span class="line">    useSign = true</span><br><span class="line">    dex &#123;</span><br><span class="line">        dexMode = &quot;jar&quot;</span><br><span class="line">        pattern = [&quot;classes*.dex&quot;]</span><br><span class="line">        loader = []</span><br><span class="line">    &#125;</span><br><span class="line">    lib &#123;</span><br><span class="line">        pattern = [&quot;lib/*/*.so&quot;]</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    res &#123;</span><br><span class="line">        pattern = [&quot;res/*&quot;, &quot;r/*&quot;, &quot;assets/*&quot;, &quot;resources.arsc&quot;, &quot;AndroidManifest.xml&quot;]</span><br><span class="line">        ignoreChange = []</span><br><span class="line">        largeModSize = 100</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    packageConfig &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    sevenZip &#123;</span><br><span class="line">        zipArtifact = &quot;com.tencent.mm:SevenZip:1.1.10&quot;</span><br><span class="line">//        path = &quot;/usr/local/bin/7za&quot;</span><br><span class="line">    &#125;</span><br><span class="line">    buildConfig &#123;</span><br><span class="line">        keepDexApply = false</span><br><span class="line">        //tinkerId = &quot;1.0.1-base&quot;</span><br><span class="line">        //applyMapping = &quot;$&#123;bakPath&#125;/$&#123;appName&#125;/app-release-mapping.txt&quot; //  可选，设置mapping文件，建议保持旧apk的proguard混淆方式</span><br><span class="line">        //applyResourceMapping = &quot;$&#123;bakPath&#125;/$&#123;appName&#125;/app-release-R.txt&quot; // 可选，设置R.txt文件，通过旧apk文件保持ResId的分配</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>注意：</strong> <strong>enableProxyApplication = false表示不使用反射的方式</strong></p>
+<h2 id="5-初始化SDK"><a href="#5-初始化SDK" class="headerlink" title="5.初始化SDK"></a>5.初始化SDK</h2><p>如图，在自己的Application中进行初始化<br><img src="/2019/04/09/hotfix/oncreate.png" alt><br><img src="/2019/04/09/hotfix/attach.png" alt></p>
+<p><em>注:我当前的项目中未采取tinker推荐的自建simpleApplication，然后让主application集成它的方式，我是用的反射，官方比较推荐不使用反射的方式，但是我觉得反射挺好用，而且灵活性更高（具体原因是项目中需要动态修改包名，所以pass掉了第一种推荐方式）</em></p>
+<h2 id="生成基准包"><a href="#生成基准包" class="headerlink" title="生成基准包"></a>生成基准包</h2><ul>
+<li>之后，进行三方库的导入和编译，这时我们应该可以成功打包了。配置好多渠道后，直接gradle打相应的渠道包，生成基准包。<br><img src="/2019/04/09/hotfix/qudao.png" alt></li>
+<li>同时注意，打基准包的时候需要在tinker-suppor.gradle文件中，定义好tinkerID，一般可以把基准包记为base-x-x</li>
+<li>打包完毕后，生成的所有apk都在路径为app-build-bakApk,然后根据时间找到基准包目录，如下的release包即为正式包。<br><img src="/2019/04/09/hotfix/release.png" alt></li>
+</ul>
+<h2 id="上报联网"><a href="#上报联网" class="headerlink" title="上报联网"></a>上报联网</h2><p>把新打的apk，安装到手机上，必须进行一次网络请求，因为bugly需要网络才能和平台联系在一起。上报联网之后，控制台里就可以出现刚刚上传上去的版本了。如图<br><img src="/2019/04/09/hotfix/banben.png" alt></p>
+<h2 id="生成补丁包"><a href="#生成补丁包" class="headerlink" title="生成补丁包"></a>生成补丁包</h2><p>修改代码吧，修改过后，还要在tinker-support.gradle文件中修改基准包路径，和TinkerID。最后打开gradle脚本，找到tinker-support，如图<br><img src="/2019/04/09/hotfix/tinker_support.png" alt><br>点击buildTinkerPatchXXXRelease,生成后的补丁包，到路径为app-build-outputs-patch,找到后缀为7zip的文件，即为补丁包。</p>
+<h2 id="上传补丁包修复基准包"><a href="#上传补丁包修复基准包" class="headerlink" title="上传补丁包修复基准包"></a>上传补丁包修复基准包</h2><p>在bugly后台点击热更新，上传新补丁，上传过后会自动找到对应的基准包，如图所示<br><img src="/2019/04/09/hotfix/fabuxinbuding.png" alt><br><br>下图就是成功下发一个新补丁的样子，如图<br><img src="/2019/04/09/hotfix/success.png" alt></p>
+<h2 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h2><p>tinker热更新就记录完了，其实看官网文档更加详细，只不过我是为了加深自己的印象，建议大家去官方文档进行查看。</p>
+<p>OVER</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/android/" rel="tag"># android</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/16/buy-phone/" rel="next" title="随笔">
+                <i class="fa fa-chevron-left"></i> 随笔
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/05/pirate/" rel="prev" title="海盗分金">
+                海盗分金 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/head.jpeg" alt="赵旭宁">
+            
+              <p class="site-author-name" itemprop="name">赵旭宁</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/zhaoxuning233/zhaoxuning233.github.io.git" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zxn1136714686@163.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://weibo.com/login.php" target="_blank" title="WeiBo">
+                    
+                      <i class="fa fa-fw fa-twitter"></i>WeiBo</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                我的粉丝
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="daevasong.github.io" title="Devae_Song" target="_blank">Devae_Song</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com/" title="张二多" target="_blank">张二多</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com/" title="欧阳娜娜" target="_blank">欧阳娜娜</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com/" title="台湾傻逼林" target="_blank">台湾傻逼林</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          <div id="music163player">
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=29491052&auto=0&height=66">
+    </iframe>
+</div>
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#进入Bugly"><span class="nav-number">1.</span> <span class="nav-text">进入Bugly</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#申请自己的产品"><span class="nav-number">2.</span> <span class="nav-text">申请自己的产品</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集成热更新组件Tinker"><span class="nav-number">3.</span> <span class="nav-text">集成热更新组件Tinker</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-添加插件依赖"><span class="nav-number">3.1.</span> <span class="nav-text">1.添加插件依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-集成SDK"><span class="nav-number">3.2.</span> <span class="nav-text">2.集成SDK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-添加依赖插件脚本"><span class="nav-number">3.3.</span> <span class="nav-text">3.添加依赖插件脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-配置tinker-support-gradle"><span class="nav-number">3.4.</span> <span class="nav-text">4.配置tinker-support.gradle</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-初始化SDK"><span class="nav-number">4.</span> <span class="nav-text">5.初始化SDK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成基准包"><span class="nav-number">5.</span> <span class="nav-text">生成基准包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上报联网"><span class="nav-number">6.</span> <span class="nav-text">上报联网</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成补丁包"><span class="nav-number">7.</span> <span class="nav-text">生成补丁包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上传补丁包修复基准包"><span class="nav-number">8.</span> <span class="nav-text">上传补丁包修复基准包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#尾声"><span class="nav-number">9.</span> <span class="nav-text">尾声</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="heart">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">赵旭宁</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

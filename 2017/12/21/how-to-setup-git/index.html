@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Git,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="回首向来萧瑟处·blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="此教程记录如何在Windows和Osx系统下安装Git">
+<meta name="keywords" content="Git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何安装Git">
+<meta property="og:url" content="http://yoursite.com/2017/12/21/how-to-setup-git/index.html">
+<meta property="og:site_name" content="回首向来萧瑟处·blog">
+<meta property="og:description" content="此教程记录如何在Windows和Osx系统下安装Git">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-11T09:04:37.916Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何安装Git">
+<meta name="twitter:description" content="此教程记录如何在Windows和Osx系统下安装Git">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/12/21/how-to-setup-git/">
+
+
+
+
+
+  <title>如何安装Git | 回首向来萧瑟处·blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/zhaoxuning233/zhaoxuning233.github.io"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+      <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">回首向来萧瑟处·blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+      </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/21/how-to-setup-git/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="赵旭宁">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="回首向来萧瑟处·blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">如何安装Git</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-21T12:14:57+08:00">
+                2017-12-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件/" itemprop="url" rel="index">
+                    <span itemprop="name">软件</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  994 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>此教程记录如何在Windows和Osx系统下安装Git<br><a id="more"></a></p>
+<h1 id="1、安装证书"><a href="#1、安装证书" class="headerlink" title="1、安装证书"></a>1、安装证书</h1><h2 id="1-1-安装chrome证书"><a href="#1-1-安装chrome证书" class="headerlink" title="1.1 安装chrome证书"></a>1.1 安装chrome证书</h2><h3 id="1-1-1-Mac平台"><a href="#1-1-1-Mac平台" class="headerlink" title="1.1.1 Mac平台"></a>1.1.1 Mac平台</h3><p>下载证书<a href="/uploads/3006f3a02697e0ccdf4de6e9f2743743/cacert.pem">cacert.pem</a>，然后直接跳到下一步。</p>
+<h3 id="1-1-2-Ubuntu-16-04"><a href="#1-1-2-Ubuntu-16-04" class="headerlink" title="1.1.2 Ubuntu 16.04"></a>1.1.2 Ubuntu 16.04</h3><p>打开chrome -&gt; 设置，点击管理证书按钮，进入证书管理器，点击授权中心选项卡，点击导入按钮，选择证书<a href="/uploads/3006f3a02697e0ccdf4de6e9f2743743/cacert.pem">cacert.pem</a>，选择信任这个证书，作为信任的授权中心。</p>
+<h2 id="1-2-安装系统根证书"><a href="#1-2-安装系统根证书" class="headerlink" title="1.2 安装系统根证书"></a>1.2 安装系统根证书</h2><h3 id="1-2-1-Mac平台"><a href="#1-2-1-Mac平台" class="headerlink" title="1.2.1 Mac平台"></a>1.2.1 Mac平台</h3><p>将证书cacert.pem复制到/usr/local/share/ca-certificates/，重命为ca.graysoft.cn.crt<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp cacert.pem /usr/local/share/ca-certificates/ca.graysoft.cn.crt</span><br></pre></td></tr></table></figure></p>
+<p>点击Launchpad–&gt;其它–&gt;钥匙串访问，找到证书后显示简介–&gt;信任–&gt;全部改为始终信任</p>
+<h3 id="1-2-2-Ubuntu-16-04"><a href="#1-2-2-Ubuntu-16-04" class="headerlink" title="1.2.2 Ubuntu 16.04"></a>1.2.2 Ubuntu 16.04</h3><p>将证书cacert.pem复制到/usr/local/share/ca-certificates/，重命名为ca.graysoft.cn.crt<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp cacert.pem /usr/local/share/ca-certificates/ca.graysoft.cn.crt</span><br></pre></td></tr></table></figure></p>
+<p>执行命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update-ca-certificates</span><br></pre></td></tr></table></figure></p>
+<h2 id="1-3-安装java证书"><a href="#1-3-安装java证书" class="headerlink" title="1.3 安装java证书"></a>1.3 安装java证书</h2><h3 id="1-3-1-Mac平台"><a href="#1-3-1-Mac平台" class="headerlink" title="1.3.1 Mac平台"></a>1.3.1 Mac平台</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=`/usr/libexec/java_home`</span><br><span class="line">sudo keytool -import -trustcacerts -file /usr/local/share/ca-certificates/ca.graysoft.cn.crt -alias CA_ALIAS -keystore $&#123;JAVA_HOME&#125;/jre/lib/security/cacerts</span><br></pre></td></tr></table></figure>
+<h3 id="1-3-2-Ubuntu-16-04"><a href="#1-3-2-Ubuntu-16-04" class="headerlink" title="1.3.2 Ubuntu 16.04"></a>1.3.2 Ubuntu 16.04</h3><p>执行命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo keytool -import -trustcacerts -file /usr/local/share/ca-certificates/ca.graysoft.cn.crt -alias CA_GRAYSOFT_CN -keystore /etc/ssl/certs/java/cacerts</span><br></pre></td></tr></table></figure>
+<p>密钥库口令：changeit</p>
+<h2 id="1-4-登录git系统，获取项目"><a href="#1-4-登录git系统，获取项目" class="headerlink" title="1.4 登录git系统，获取项目"></a>1.4 登录git系统，获取项目</h2><p>打开网页<a href="https://git.graysoft.cn/" target="_blank" rel="noopener">https://git.graysoft.cn/</a></p>
+<p>使用自己的账号（邮箱去掉@neutrey.com）和密码（邮箱登录密码）登录</p>
+<p>联系管理员，设置项目权限。</p>
+<p>之后就可以访问<a href="https://git.graysoft.cn/看到各个项目了。" target="_blank" rel="noopener">https://git.graysoft.cn/看到各个项目了。</a></p>
+<hr>
+<h1 id="2、生成密钥，并配置到git服务器"><a href="#2、生成密钥，并配置到git服务器" class="headerlink" title="2、生成密钥，并配置到git服务器"></a>2、生成密钥，并配置到git服务器</h1><h2 id="2-1-生成密钥"><a href="#2-1-生成密钥" class="headerlink" title="2.1 生成密钥"></a>2.1 生成密钥</h2><p>生成密钥，邮箱地址需要更换成自己的邮箱，此处以下的密码建议设置为空，以便于操作。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;baichenguang@neutrey.com&quot;</span><br></pre></td></tr></table></figure>
+<p>查看公钥是否已生成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+<p>将公钥复制到剪贴板（Mac平台）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pbcopy &lt; ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+<p>将公钥复制到剪贴板（Ubuntu 16.04）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xclip -sel clip &lt; ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+<h2 id="2-2-将公钥配置到git服务器"><a href="#2-2-将公钥配置到git服务器" class="headerlink" title="2.2 将公钥配置到git服务器"></a>2.2 将公钥配置到git服务器</h2><p>打开网页<a href="https://git.graysoft.cn/" target="_blank" rel="noopener">https://git.graysoft.cn/</a></p>
+<p>使用自己的账号和密码登录</p>
+<p>打开Profile Settings，点击SSH Keys选项卡</p>
+<p>将公钥复制到Key输入框，Title输入框可以写自己的姓名全拼，点击Add key按钮</p>
+<h2 id="2-3-配置git服务器在本地的host和端口"><a href="#2-3-配置git服务器在本地的host和端口" class="headerlink" title="2.3 配置git服务器在本地的host和端口"></a>2.3 配置git服务器在本地的host和端口</h2><p>在~/.ssh/目录中创建config文件，文件内容为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Host git.graysoft.cn</span><br><span class="line">Port 8022</span><br><span class="line">Host *</span><br><span class="line">Port 22</span><br></pre></td></tr></table></figure>
+<h2 id="2-4-git-共用配置"><a href="#2-4-git-共用配置" class="headerlink" title="2.4 git 共用配置"></a>2.4 git 共用配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;Bai Chenguang&quot;</span><br><span class="line">git config --global user.email &quot;baichengguang@neutrey.com&quot;</span><br></pre></td></tr></table></figure>
+<p>注：把姓名和邮箱改为自己的真实姓名和邮箱。</p>
+<h2 id="2-5-拉取一个测试项目"><a href="#2-5-拉取一个测试项目" class="headerlink" title="2.5 拉取一个测试项目"></a>2.5 拉取一个测试项目</h2><p>执行命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@git.graysoft.cn:wangsheng/test.git</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="3、配置比较工具"><a href="#3、配置比较工具" class="headerlink" title="3、配置比较工具"></a>3、配置比较工具</h1><h2 id="3-1-Mac平台"><a href="#3-1-Mac平台" class="headerlink" title="3.1 Mac平台"></a>3.1 Mac平台</h2><h3 id="3-1-1-安装BeyondCompare4，已安装的可以跳过"><a href="#3-1-1-安装BeyondCompare4，已安装的可以跳过" class="headerlink" title="3.1.1 安装BeyondCompare4，已安装的可以跳过"></a>3.1.1 安装BeyondCompare4，已安装的可以跳过</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">前往afp://192.168.3.11   在software／osx路径中进行拷贝</span><br></pre></td></tr></table></figure>
+<h3 id="3-1-2-破解BeyondCompare4"><a href="#3-1-2-破解BeyondCompare4" class="headerlink" title="3.1.2 破解BeyondCompare4"></a>3.1.2 破解BeyondCompare4</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">找到trial key后，找到Contents/Resources/trial.key，替换为破解的trial.key</span><br></pre></td></tr></table></figure>
+<h3 id="3-1-3-配置比较工具"><a href="#3-1-3-配置比较工具" class="headerlink" title="3.1.3 配置比较工具"></a>3.1.3 配置比较工具</h3><p>BeyondCompare菜单 -&gt; 安装命令行指令，找到git配置文件路径：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git conig --global -e</span><br></pre></td></tr></table></figure></p>
+<p>添加以下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[diff]</span><br><span class="line">  tool = bcomp</span><br><span class="line">[difftool]</span><br><span class="line">  prompt = false</span><br><span class="line">[difftool &quot;bcomp&quot;]</span><br><span class="line">  trustExitCode = true</span><br><span class="line">  cmd = &quot;/usr/local/bin/bcomp&quot; \&quot;$LOCAL\&quot; \&quot;$REMOTE\&quot;</span><br><span class="line">[merge]</span><br><span class="line">  tool = bcomp</span><br><span class="line">[mergetool]</span><br><span class="line">  prompt = false</span><br><span class="line">[mergetool &quot;bcomp&quot;]</span><br><span class="line">  trustExitCode = true</span><br><span class="line">  cmd = &quot;/usr/local/bin/bcomp&quot; \&quot;$LOCAL\&quot; \&quot;$REMOTE\&quot; \&quot;$BASE\&quot; \&quot;$MERGED\&quot;</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-1-4-测试是否配置成功"><a href="#3-1-4-测试是否配置成功" class="headerlink" title="3.1.4 测试是否配置成功"></a>3.1.4 测试是否配置成功</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">命令行输入git difftool，跳出对面界面则配置成功</span><br></pre></td></tr></table></figure>
+<h2 id="3-2-Ubuntu-16-04平台"><a href="#3-2-Ubuntu-16-04平台" class="headerlink" title="3.2 Ubuntu 16.04平台"></a>3.2 Ubuntu 16.04平台</h2><h3 id="3-2-1-安装meld，已安装的可以跳过"><a href="#3-2-1-安装meld，已安装的可以跳过" class="headerlink" title="3.2.1 安装meld，已安装的可以跳过"></a>3.2.1 安装meld，已安装的可以跳过</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install meld</span><br></pre></td></tr></table></figure>
+<h3 id="3-2-2-创建一个shell脚本，命名为git-meld-sh，并增加可执行权限"><a href="#3-2-2-创建一个shell脚本，命名为git-meld-sh，并增加可执行权限" class="headerlink" title="3.2.2 创建一个shell脚本，命名为git_meld.sh，并增加可执行权限"></a>3.2.2 创建一个shell脚本，命名为git_meld.sh，并增加可执行权限</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/bin/git_meld.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">meld $2 $5</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x ~/bin/git_meld.sh</span><br></pre></td></tr></table></figure>
+<h3 id="3-2-3-配置比较工具"><a href="#3-2-3-配置比较工具" class="headerlink" title="3.2.3 配置比较工具"></a>3.2.3 配置比较工具</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global diff.external ~/bin/git_meld.sh</span><br></pre></td></tr></table></figure>
+<h3 id="3-2-4-安装直接在文件管理器，鼠标右键使用meld的工具"><a href="#3-2-4-安装直接在文件管理器，鼠标右键使用meld的工具" class="headerlink" title="3.2.4 安装直接在文件管理器，鼠标右键使用meld的工具"></a>3.2.4 安装直接在文件管理器，鼠标右键使用meld的工具</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install nautilus-compare</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Git/" rel="tag"># Git</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/21/hello-world/" rel="next" title="hello world">
+                <i class="fa fa-chevron-left"></i> hello world
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/21/how-to-setup-inner-maven/" rel="prev" title="如何安装Maven">
+                如何安装Maven <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/head.jpeg" alt="赵旭宁">
+            
+              <p class="site-author-name" itemprop="name">赵旭宁</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/zhaoxuning233/zhaoxuning233.github.io.git" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:zxn1136714686@163.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://weibo.com/login.php" target="_blank" title="WeiBo">
+                    
+                      <i class="fa fa-fw fa-twitter"></i>WeiBo</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                我的粉丝
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="daevasong.github.io" title="Devae_Song" target="_blank">Devae_Song</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com/" title="张二多" target="_blank">张二多</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com/" title="欧阳娜娜" target="_blank">欧阳娜娜</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com/" title="台湾傻逼林" target="_blank">台湾傻逼林</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          <div id="music163player">
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=29491052&auto=0&height=66">
+    </iframe>
+</div>
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1、安装证书"><span class="nav-number">1.</span> <span class="nav-text">1、安装证书</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-安装chrome证书"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 安装chrome证书</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-1-Mac平台"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1.1 Mac平台</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-2-Ubuntu-16-04"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.1.2 Ubuntu 16.04</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-安装系统根证书"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 安装系统根证书</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1-Mac平台"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.2.1 Mac平台</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-2-Ubuntu-16-04"><span class="nav-number">1.2.2.</span> <span class="nav-text">1.2.2 Ubuntu 16.04</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-安装java证书"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 安装java证书</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-1-Mac平台"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.3.1 Mac平台</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-2-Ubuntu-16-04"><span class="nav-number">1.3.2.</span> <span class="nav-text">1.3.2 Ubuntu 16.04</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-登录git系统，获取项目"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 登录git系统，获取项目</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2、生成密钥，并配置到git服务器"><span class="nav-number">2.</span> <span class="nav-text">2、生成密钥，并配置到git服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-生成密钥"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 生成密钥</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-将公钥配置到git服务器"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 将公钥配置到git服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-配置git服务器在本地的host和端口"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 配置git服务器在本地的host和端口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-git-共用配置"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 git 共用配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-拉取一个测试项目"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 拉取一个测试项目</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3、配置比较工具"><span class="nav-number">3.</span> <span class="nav-text">3、配置比较工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-Mac平台"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 Mac平台</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-1-安装BeyondCompare4，已安装的可以跳过"><span class="nav-number">3.1.1.</span> <span class="nav-text">3.1.1 安装BeyondCompare4，已安装的可以跳过</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-2-破解BeyondCompare4"><span class="nav-number">3.1.2.</span> <span class="nav-text">3.1.2 破解BeyondCompare4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-3-配置比较工具"><span class="nav-number">3.1.3.</span> <span class="nav-text">3.1.3 配置比较工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-4-测试是否配置成功"><span class="nav-number">3.1.4.</span> <span class="nav-text">3.1.4 测试是否配置成功</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-Ubuntu-16-04平台"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 Ubuntu 16.04平台</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-1-安装meld，已安装的可以跳过"><span class="nav-number">3.2.1.</span> <span class="nav-text">3.2.1 安装meld，已安装的可以跳过</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-2-创建一个shell脚本，命名为git-meld-sh，并增加可执行权限"><span class="nav-number">3.2.2.</span> <span class="nav-text">3.2.2 创建一个shell脚本，命名为git_meld.sh，并增加可执行权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-3-配置比较工具"><span class="nav-number">3.2.3.</span> <span class="nav-text">3.2.3 配置比较工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-4-安装直接在文件管理器，鼠标右键使用meld的工具"><span class="nav-number">3.2.4.</span> <span class="nav-text">3.2.4 安装直接在文件管理器，鼠标右键使用meld的工具</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="heart">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">赵旭宁</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
