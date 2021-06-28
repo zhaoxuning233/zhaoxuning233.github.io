@@ -263,28 +263,6 @@
   </entry>
   
   <entry>
-    <title>My Name is Graphics</title>
-    <link href="http://yoursite.com/2019/01/17/what-is-graphics/"/>
-    <id>http://yoursite.com/2019/01/17/what-is-graphics/</id>
-    <published>2019-01-17T06:58:57.000Z</published>
-    <updated>2019-03-11T08:48:38.359Z</updated>
-    
-    <content type="html"><![CDATA[<p>显卡知识扫盲<br><a id="more"></a></p><h2 id="显卡的关键参数"><a href="#显卡的关键参数" class="headerlink" title="显卡的关键参数"></a>显卡的关键参数</h2><ul><li>流处理器的数量</li><li>显卡的架构</li><li>显卡的核心频率</li><li>显存容量/位宽/频率</li></ul><h3 id="流处理器？"><a href="#流处理器？" class="headerlink" title="流处理器？"></a>流处理器？</h3><p>流处理器（CUDA核心）就是显卡画画的地方，可以理解为显卡里的画师。流处理器越多，每秒画出的图片也就越多。越好的显卡其中的流处理器也越多。</p><h3 id="显卡的架构？"><a href="#显卡的架构？" class="headerlink" title="显卡的架构？"></a>显卡的架构？</h3><p>例如：GTX960 虽然有1024个流处理器，但是是采用老一代的麦克斯架构。GTX1050ti 虽然只有768个流处理器，但是确实采用新一代的帕斯卡架构。<br>所以GTX1050ti要比GTX960要好。（现在已经出到20系列显卡，采用图灵架构）<br>新架构的显卡效率更高，性能也更强。</p><h3 id="显卡的核心频率"><a href="#显卡的核心频率" class="headerlink" title="显卡的核心频率"></a>显卡的核心频率</h3><p>流处理器“画画”的速度。在架构和流处理器一致时，频率越快，显卡效率越高性能越好。可以通过显卡超频来强行提升这个频率。</p><h3 id="显存容量-位宽-频率"><a href="#显存容量-位宽-频率" class="headerlink" title="显存容量/位宽/频率"></a>显存容量/位宽/频率</h3><p>位宽表示显卡每秒能运送多少位的“货物”到显存。显存频率代表每秒从显卡到显存运输的次数。显存容量就是存储空间的大小。</p><p><img src="/2019/01/17/what-is-graphics/xianka1.png" alt></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;显卡知识扫盲&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="硬件" scheme="http://yoursite.com/categories/%E7%A1%AC%E4%BB%B6/"/>
-    
-    
-      <category term="硬件" scheme="http://yoursite.com/tags/%E7%A1%AC%E4%BB%B6/"/>
-    
-  </entry>
-  
-  <entry>
     <title>My Name is CPU</title>
     <link href="http://yoursite.com/2019/01/17/what-is-cpu/"/>
     <id>http://yoursite.com/2019/01/17/what-is-cpu/</id>
@@ -296,6 +274,28 @@
     <summary type="html">
     
       &lt;p&gt;CPU知识扫盲&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="硬件" scheme="http://yoursite.com/categories/%E7%A1%AC%E4%BB%B6/"/>
+    
+    
+      <category term="硬件" scheme="http://yoursite.com/tags/%E7%A1%AC%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>My Name is Graphics</title>
+    <link href="http://yoursite.com/2019/01/17/what-is-graphics/"/>
+    <id>http://yoursite.com/2019/01/17/what-is-graphics/</id>
+    <published>2019-01-17T06:58:57.000Z</published>
+    <updated>2019-03-11T08:48:38.359Z</updated>
+    
+    <content type="html"><![CDATA[<p>显卡知识扫盲<br><a id="more"></a></p><h2 id="显卡的关键参数"><a href="#显卡的关键参数" class="headerlink" title="显卡的关键参数"></a>显卡的关键参数</h2><ul><li>流处理器的数量</li><li>显卡的架构</li><li>显卡的核心频率</li><li>显存容量/位宽/频率</li></ul><h3 id="流处理器？"><a href="#流处理器？" class="headerlink" title="流处理器？"></a>流处理器？</h3><p>流处理器（CUDA核心）就是显卡画画的地方，可以理解为显卡里的画师。流处理器越多，每秒画出的图片也就越多。越好的显卡其中的流处理器也越多。</p><h3 id="显卡的架构？"><a href="#显卡的架构？" class="headerlink" title="显卡的架构？"></a>显卡的架构？</h3><p>例如：GTX960 虽然有1024个流处理器，但是是采用老一代的麦克斯架构。GTX1050ti 虽然只有768个流处理器，但是确实采用新一代的帕斯卡架构。<br>所以GTX1050ti要比GTX960要好。（现在已经出到20系列显卡，采用图灵架构）<br>新架构的显卡效率更高，性能也更强。</p><h3 id="显卡的核心频率"><a href="#显卡的核心频率" class="headerlink" title="显卡的核心频率"></a>显卡的核心频率</h3><p>流处理器“画画”的速度。在架构和流处理器一致时，频率越快，显卡效率越高性能越好。可以通过显卡超频来强行提升这个频率。</p><h3 id="显存容量-位宽-频率"><a href="#显存容量-位宽-频率" class="headerlink" title="显存容量/位宽/频率"></a>显存容量/位宽/频率</h3><p>位宽表示显卡每秒能运送多少位的“货物”到显存。显存频率代表每秒从显卡到显存运输的次数。显存容量就是存储空间的大小。</p><p><img src="/2019/01/17/what-is-graphics/xianka1.png" alt></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;显卡知识扫盲&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
