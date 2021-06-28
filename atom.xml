@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-10-25T01:00:33.491Z</updated>
+  <updated>2021-06-28T03:25:05.230Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>工作常用软件汇总整理</title>
+    <link href="http://yoursite.com/2021/06/28/%E5%B7%A5%E4%BD%9C%E8%BD%AF%E4%BB%B6%E6%B1%87%E6%80%BB/"/>
+    <id>http://yoursite.com/2021/06/28/工作软件汇总/</id>
+    <published>2021-06-28T00:58:57.000Z</published>
+    <updated>2021-06-28T03:25:05.230Z</updated>
+    
+    <content type="html"><![CDATA[<p>汇总了工作中必备的软件和常用的一些提升工作效率的软件<br><a id="more"></a></p><hr><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>本文记录了在工作中常用的一些工作软件和提升工作效率的软件的使用方法和安装方法，以下为本文中涉及到的软件清单</p><ul><li>T100</li><li>XMind</li><li>TeamViewer</li><li>文件转换工具</li><li>打印机的连接设置方式</li></ul><hr><h2 id="T100"><a href="#T100" class="headerlink" title="T100"></a>T100</h2><p>简介：T100是工作中连接远程服务器必要的异步远程登录软件，涉及到工作中的方方面面。</p><h3 id="安装软件"><a href="#安装软件" class="headerlink" title="安装软件"></a>安装软件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">下载地址：https://pan.baidu.com/s/1JcmikA9rnmTCd90oAuzhVw</span><br><span class="line">提取码：  nksd</span><br></pre></td></tr></table></figure><p><strong>双击下载后的安装包后，采用默认安装方式，直接点击安装即可。</strong><br><br><br><img src="/2021/06/28/工作软件汇总/T100_1.png" alt><br><img src="/2021/06/28/工作软件汇总/T100_2.png" alt><br><strong>安装后按如下信息写入配置信息</strong><br><img src="/2021/06/28/工作软件汇总/T100_3.png" alt><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">服务器地址:端口     zjyh2018:81</span><br><span class="line">用户名             yahu6</span><br><span class="line">密码               yahu6</span><br></pre></td></tr></table></figure></p><hr><h2 id="XMind"><a href="#XMind" class="headerlink" title="XMind"></a>XMind</h2><p>简介：思维导图软件，用于整理思路并进行工作汇报</p><h3 id="安装软件-1"><a href="#安装软件-1" class="headerlink" title="安装软件"></a>安装软件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">下载地址：https://pan.baidu.com/s/1qZIDh6BUO2067LRAGm3z7g</span><br><span class="line">提取码：  uq9x</span><br></pre></td></tr></table></figure><p>解压下载后的压缩包后，打开文件夹，点击安装图标进行安装。安装过程为默认安装，如图所示<br><br><br><img src="/2021/06/28/工作软件汇总/XMind_2.png" alt></p><h3 id="软件破解"><a href="#软件破解" class="headerlink" title="软件破解"></a>软件破解</h3><ul><li>打开解压后的文件夹，找到名为“app.asar”的文件，复制该文件。</li><li>找到刚安装好的位于桌面上的XMind图标，选中图标单击右键，点击“打开文件所在的位置”</li><li>在该目录下找到名为“resources”的文件夹，并双击进入此文件夹</li><li>在空白处进行粘贴，替换刚刚复制的“app.asar”文件<br><img src="/2021/06/28/工作软件汇总/XMind_3.png" alt><br><img src="/2021/06/28/工作软件汇总/XMind_4.png" alt></li></ul><h3 id="软件的使用方法"><a href="#软件的使用方法" class="headerlink" title="软件的使用方法"></a>软件的使用方法</h3><p><strong>下图为XMind的使用方法，请保存此图片并在闲暇之余翻看</strong><br><img src="/2021/06/28/工作软件汇总/XMind_1.png" alt></p><hr><h2 id="TeamViewer"><a href="#TeamViewer" class="headerlink" title="TeamViewer"></a>TeamViewer</h2><p>简介：此软件为远程协助软件，连接性能比QQ远程协助效率和稳定性高很多。</p><h3 id="安装软件-2"><a href="#安装软件-2" class="headerlink" title="安装软件"></a>安装软件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">下载地址：https://pan.baidu.com/s/1_A6TjDD6uIBDzVsBoCV0Xw</span><br><span class="line">提取码： 3iga</span><br></pre></td></tr></table></figure><p>此软件采取默认安装，安装过程如图<br><img src="/2021/06/28/工作软件汇总/Teamviewer_1.png" alt></p><h3 id="软件使用"><a href="#软件使用" class="headerlink" title="软件使用"></a>软件使用</h3><p>打开软件后，页面如图所示<br><img src="/2021/06/28/工作软件汇总/Teamviewer_2.png" alt></p><ul><li><strong>当你需要别人的协助时，请把您的ID和密码告知对方</strong><br><img src="/2021/06/28/工作软件汇总/Teamviewer_3.png" alt></li><li><strong>当你准备协助其他人时，请填写对方的ID，并填写密码</strong><br><img src="/2021/06/28/工作软件汇总/Teamviewer_4.png" alt></li></ul><hr><h2 id="文件转换工具"><a href="#文件转换工具" class="headerlink" title="文件转换工具"></a>文件转换工具</h2><p>简介：当需要进行文件转换，比如图片转PDF，PDF与Word，Excel相应的转换等。</p><p><strong>使用工具：WPS</strong></p><ul><li>打开WPS软件，找到PDF选项卡，并查看如下的插件并进行点击安装<br><img src="/2021/06/28/工作软件汇总/WPS_1.png" alt></li></ul><hr><h2 id="打印机的连接设置方式"><a href="#打印机的连接设置方式" class="headerlink" title="打印机的连接设置方式"></a>打印机的连接设置方式</h2><p>概述：每个打印机都会有两条线，一条为电源线，一条为数据线。电源线直接连接打印机和插座进行供电，数据线连接打印机和计算机USB口进行数据传输。如图分别为电源线和数据线<br><img src="/2021/06/28/工作软件汇总/print_1.png" alt><br><img src="/2021/06/28/工作软件汇总/print_2.png" alt></p><h3 id="连接两条线之后"><a href="#连接两条线之后" class="headerlink" title="连接两条线之后"></a>连接两条线之后</h3><p>打开设置页面，找到“Windows设置”，点击“网络和Internet”，点击“网络和共享中心”，点击“更改高级共享设置”<br><img src="/2021/06/28/工作软件汇总/print_3.png" alt><br><img src="/2021/06/28/工作软件汇总/print_4.png" alt><br><img src="/2021/06/28/工作软件汇总/print_5.png" alt></p><h3 id="设置打印机共享"><a href="#设置打印机共享" class="headerlink" title="设置打印机共享"></a>设置打印机共享</h3><p>点击“更改高级共享设置”，在“专用”和“所有网络”设置中，按图中选项进行勾选，切勿勾选错误。<br><img src="/2021/06/28/工作软件汇总/print_6.png" alt><br><img src="/2021/06/28/工作软件汇总/print_7.png" alt></p><h3 id="设置完成"><a href="#设置完成" class="headerlink" title="设置完成"></a>设置完成</h3><p>在自己的电脑上，同时点击键盘上的Win键，R键调出运行窗口。输入连接了打印接的宿主计算机的ip地址。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">填写格式为：\\192.168.1.XXX</span><br></pre></td></tr></table></figure></p><p>安装好相应的驱动后即可正常在自己电脑上进行打印</p><h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>以上为常用的软件使用技巧，请保存此网页，综合部将会不定期进行更新有助于提升大家工作效率的软件和办公技巧。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;汇总了工作中必备的软件和常用的一些提升工作效率的软件&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="工作" scheme="http://yoursite.com/categories/%E5%B7%A5%E4%BD%9C/"/>
+    
+    
+      <category term="工作效率" scheme="http://yoursite.com/tags/%E5%B7%A5%E4%BD%9C%E6%95%88%E7%8E%87/"/>
+    
+  </entry>
   
   <entry>
     <title>《昨天，今天，明天》</title>
@@ -241,28 +263,6 @@
   </entry>
   
   <entry>
-    <title>My Name is CPU</title>
-    <link href="http://yoursite.com/2019/01/17/what-is-cpu/"/>
-    <id>http://yoursite.com/2019/01/17/what-is-cpu/</id>
-    <published>2019-01-17T06:58:57.000Z</published>
-    <updated>2019-03-12T07:40:31.586Z</updated>
-    
-    <content type="html"><![CDATA[<p>CPU知识扫盲<br><a id="more"></a></p><h2 id="CPU四大概念"><a href="#CPU四大概念" class="headerlink" title="CPU四大概念"></a>CPU四大概念</h2><ul><li>架构</li><li>核心</li><li>频率</li><li>缓存</li></ul><h3 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h3><p>cpu的整体框架。越新型的cpu，架构越新。比方说搬砖，老架构的cpu仿佛小推车，新架构的cpu就像大卡车</p><h3 id="核心"><a href="#核心" class="headerlink" title="核心"></a>核心</h3><p>cpu进行数据运算的东西。目前市面上有什么双核，4核，8核等。cpu的一个核心有一个线程，可以同时完成一个任务，但是自从有了超线程技术，一个核心可以有两个线程，同时完成两个任务。（线程数 = 2*核心数）</p><h3 id="频率"><a href="#频率" class="headerlink" title="频率"></a>频率</h3><p>cpu的运算速度。频率越高，运算速度越快。分为：基频，睿频，超频</p><ul><li>基频（主频）：cpu的基本频率。好比一个人轻松自在的散步时的走路速度。</li><li>睿频：cpu高负载，火力全开时的频率。好比一个人开始跑步时的速度。</li><li>超频：cpu极限性能时的频率。百米冲刺的速度了。</li></ul><blockquote><p>英特尔I3不支持睿频，I5，I7，I9支持睿频，英特尔后缀带K，X的都是支持超频的，AMD的锐龙系列全部支持超频</p></blockquote><h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3><p>读写速度超快的内存<br><img src="/2019/01/17/what-is-cpu/cpu1.png" alt></p><h3 id="办公"><a href="#办公" class="headerlink" title="办公"></a>办公</h3><p>买自带核显的cpu更好，便宜实惠。<br>推荐：英特尔奔腾G5400，I3-8100，AMD锐龙3 2200G（推荐，自带的核显甚至高于一些独显）</p><h3 id="游戏"><a href="#游戏" class="headerlink" title="游戏"></a>游戏</h3><p>买频率高的，打游戏对于核心数没太大需求。<br>推荐：AMD锐龙5 2400G，I5-8600，I7-8700K，AMD锐龙5 2600X</p><h3 id="设计渲染"><a href="#设计渲染" class="headerlink" title="设计渲染"></a>设计渲染</h3><p>买多核心多线程的CPU。</p><h3 id="常见cpu参数"><a href="#常见cpu参数" class="headerlink" title="常见cpu参数"></a>常见cpu参数</h3><p><img src="/2019/01/17/what-is-cpu/cpu2.png" alt></p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul><li>CPU买新不买旧</li><li>家用办公买自带核芯显卡的CPU</li><li>打游戏买频率高的CPU</li><li>设计渲染买多核多线程的CPU</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;CPU知识扫盲&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="硬件" scheme="http://yoursite.com/categories/%E7%A1%AC%E4%BB%B6/"/>
-    
-    
-      <category term="硬件" scheme="http://yoursite.com/tags/%E7%A1%AC%E4%BB%B6/"/>
-    
-  </entry>
-  
-  <entry>
     <title>My Name is Graphics</title>
     <link href="http://yoursite.com/2019/01/17/what-is-graphics/"/>
     <id>http://yoursite.com/2019/01/17/what-is-graphics/</id>
@@ -274,6 +274,28 @@
     <summary type="html">
     
       &lt;p&gt;显卡知识扫盲&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="硬件" scheme="http://yoursite.com/categories/%E7%A1%AC%E4%BB%B6/"/>
+    
+    
+      <category term="硬件" scheme="http://yoursite.com/tags/%E7%A1%AC%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>My Name is CPU</title>
+    <link href="http://yoursite.com/2019/01/17/what-is-cpu/"/>
+    <id>http://yoursite.com/2019/01/17/what-is-cpu/</id>
+    <published>2019-01-17T06:58:57.000Z</published>
+    <updated>2019-03-12T07:40:31.586Z</updated>
+    
+    <content type="html"><![CDATA[<p>CPU知识扫盲<br><a id="more"></a></p><h2 id="CPU四大概念"><a href="#CPU四大概念" class="headerlink" title="CPU四大概念"></a>CPU四大概念</h2><ul><li>架构</li><li>核心</li><li>频率</li><li>缓存</li></ul><h3 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h3><p>cpu的整体框架。越新型的cpu，架构越新。比方说搬砖，老架构的cpu仿佛小推车，新架构的cpu就像大卡车</p><h3 id="核心"><a href="#核心" class="headerlink" title="核心"></a>核心</h3><p>cpu进行数据运算的东西。目前市面上有什么双核，4核，8核等。cpu的一个核心有一个线程，可以同时完成一个任务，但是自从有了超线程技术，一个核心可以有两个线程，同时完成两个任务。（线程数 = 2*核心数）</p><h3 id="频率"><a href="#频率" class="headerlink" title="频率"></a>频率</h3><p>cpu的运算速度。频率越高，运算速度越快。分为：基频，睿频，超频</p><ul><li>基频（主频）：cpu的基本频率。好比一个人轻松自在的散步时的走路速度。</li><li>睿频：cpu高负载，火力全开时的频率。好比一个人开始跑步时的速度。</li><li>超频：cpu极限性能时的频率。百米冲刺的速度了。</li></ul><blockquote><p>英特尔I3不支持睿频，I5，I7，I9支持睿频，英特尔后缀带K，X的都是支持超频的，AMD的锐龙系列全部支持超频</p></blockquote><h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3><p>读写速度超快的内存<br><img src="/2019/01/17/what-is-cpu/cpu1.png" alt></p><h3 id="办公"><a href="#办公" class="headerlink" title="办公"></a>办公</h3><p>买自带核显的cpu更好，便宜实惠。<br>推荐：英特尔奔腾G5400，I3-8100，AMD锐龙3 2200G（推荐，自带的核显甚至高于一些独显）</p><h3 id="游戏"><a href="#游戏" class="headerlink" title="游戏"></a>游戏</h3><p>买频率高的，打游戏对于核心数没太大需求。<br>推荐：AMD锐龙5 2400G，I5-8600，I7-8700K，AMD锐龙5 2600X</p><h3 id="设计渲染"><a href="#设计渲染" class="headerlink" title="设计渲染"></a>设计渲染</h3><p>买多核心多线程的CPU。</p><h3 id="常见cpu参数"><a href="#常见cpu参数" class="headerlink" title="常见cpu参数"></a>常见cpu参数</h3><p><img src="/2019/01/17/what-is-cpu/cpu2.png" alt></p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul><li>CPU买新不买旧</li><li>家用办公买自带核芯显卡的CPU</li><li>打游戏买频率高的CPU</li><li>设计渲染买多核多线程的CPU</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;CPU知识扫盲&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
@@ -439,28 +461,6 @@
     
     
       <category term="docker" scheme="http://yoursite.com/tags/docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>java集合框架学习（Set篇）</title>
-    <link href="http://yoursite.com/2018/01/31/java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0(Set)/"/>
-    <id>http://yoursite.com/2018/01/31/java集合框架学习(Set)/</id>
-    <published>2018-01-31T09:48:57.000Z</published>
-    <updated>2019-03-11T09:02:32.384Z</updated>
-    
-    <content type="html"><![CDATA[<p>java集合框架学习（Set篇）<br><a id="more"></a></p><h2 id="什么是Set"><a href="#什么是Set" class="headerlink" title="什么是Set?"></a>什么是Set?</h2><p>Set和List一样，也继承于Collection,是集合的一种。和List不同的是，Set内部实现是基于Map的，所以Set取值时不保证数据和存入的时候顺序一致，并且不允许空值，不允许重复值。</p><p><img src="http://img.blog.csdn.net/20161023191717442" alt></p><p><strong>Set的继承结构</strong><br><img src="http://img.blog.csdn.net/20161023193400390" alt></p><h2 id="HashSet"><a href="#HashSet" class="headerlink" title="HashSet ?"></a>HashSet ?</h2><p>HashSet主要由HashMap实现,该体系集合可以知道某物是否已近存在于集合中,不会存储重复的元素。如果调用HashSet的无参构造函数，那么就会使用默认的HashMap，初始化Size为16，扩张系数为0.75。</p><blockquote><p>HashSet不存入重复元素的规则.使用hashcode和equals。由于Set集合是不能存入重复元素的集合。那么HashSet也是具备这一特性的。HashSet如何检查重复？HashSet会通过元素的hashcode（）和equals方法进行判断元素师否重复。</p></blockquote><p><em>HashSet用法(基本数据类型)</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">public class Demo4 &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        // Set 集合存和取的顺序不一致。</span><br><span class="line">        Set hs = new HashSet();</span><br><span class="line">        hs.add(&quot;世界军事&quot;);</span><br><span class="line">        hs.add(&quot;兵器知识&quot;);</span><br><span class="line">        hs.add(&quot;舰船知识&quot;);</span><br><span class="line">        hs.add(&quot;汉和防务&quot;);</span><br><span class="line"></span><br><span class="line">        // 返回此 set 中的元素的数量</span><br><span class="line">        System.out.println(hs.size()); // 4</span><br><span class="line"></span><br><span class="line">        // 如果此 set 尚未包含指定元素，则返回 true</span><br><span class="line">        boolean add = hs.add(&quot;世界军事&quot;); // false</span><br><span class="line">        System.out.println(add);</span><br><span class="line"></span><br><span class="line">        // 返回此 set 中的元素的数量</span><br><span class="line">        System.out.println(hs.size());// 4</span><br><span class="line">        Iterator it = hs.iterator();</span><br><span class="line">        while (it.hasNext()) &#123;</span><br><span class="line">            System.out.println(it.next());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p><em>HashSet用法(自定义对象)</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">public class Demo4 &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        HashSet hs = new HashSet();</span><br><span class="line">        hs.add(new Person(&quot;jack&quot;, 20));</span><br><span class="line">        hs.add(new Person(&quot;rose&quot;, 20));</span><br><span class="line">        hs.add(new Person(&quot;hmm&quot;, 20));</span><br><span class="line">        hs.add(new Person(&quot;lilei&quot;, 20));</span><br><span class="line">        hs.add(new Person(&quot;jack&quot;, 20));</span><br><span class="line"></span><br><span class="line">        Iterator it = hs.iterator();</span><br><span class="line">        while (it.hasNext()) &#123;</span><br><span class="line">            Object next = it.next();</span><br><span class="line">            System.out.println(next);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Person &#123;</span><br><span class="line">    private String name;</span><br><span class="line">    private int age;</span><br><span class="line"></span><br><span class="line">    Person() &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public Person(String name, int age) &#123;</span><br><span class="line"></span><br><span class="line">        this.name = name;</span><br><span class="line">        this.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public String getName() &#123;</span><br><span class="line">        return name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setName(String name) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public int getAge() &#123;</span><br><span class="line">        return age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setAge(int age) &#123;</span><br><span class="line">        this.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public int hashCode() &#123;</span><br><span class="line">        System.out.println(&quot;hashCode:&quot; + this.name);</span><br><span class="line">        return this.name.hashCode() + age * 37;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public boolean equals(Object obj) &#123;</span><br><span class="line">        System.out.println(this + &quot;---equals---&quot; + obj);</span><br><span class="line">        if (obj instanceof Person) &#123;</span><br><span class="line">            Person p = (Person) obj;</span><br><span class="line">            return this.name.equals(p.name) &amp;&amp; this.age == p.age;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public String toString() &#123;</span><br><span class="line"></span><br><span class="line">        return &quot;Person@name:&quot; + this.name + &quot; age:&quot; + this.age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p><strong><em>HashSet到底是如何判断两个元素重复</em></strong></p><p>通过hashCode方法和equals方法来保证元素的唯一性，add()返回的是boolean类型</p><p>判断两个元素是否相同，先要判断元素的hashCode值是否一致，只有在该值一致的情况下，才会判断equals方法，如果存储在HashSet中的两个对象hashCode方法的值相同equals方法返回的结果是true，那么HashSet认为这两个元素是相同元素，只存储一个（重复元素无法存入）。</p><p>注意：HashSet集合在判断元素是否相同先判断hashCode方法，如果相同才会判断equals。如果不相同，是不会调用equals方法的。</p><ul><li>HashSet 和ArrayList集合都有判断元素是否相同的方法，</li><li>HashSet使用hashCode和equals方法，ArrayList使用了equals方法</li></ul><h2 id="TreeSet"><a href="#TreeSet" class="headerlink" title="TreeSet ?"></a>TreeSet ?</h2><p>现在有一批数据，要求不能重复存储元素，而且要排序。ArrayList 、 LinkedList不能去除重复数据。HashSet可以去除重复，但是是无序。所以这时候就要使用TreeSet了。</p><blockquote><p><em>TreeSet和TreeMap相似，不写了</em></p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;java集合框架学习（Set篇）&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Java" scheme="http://yoursite.com/categories/Java/"/>
-    
-    
-      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
     
   </entry>
   
